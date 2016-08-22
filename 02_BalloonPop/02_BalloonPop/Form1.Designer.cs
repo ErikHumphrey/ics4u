@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblKillingspree = new System.Windows.Forms.Label();
-            this.lblKillStreak = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBalloonPop));
+            this.lblTimeRemaining = new System.Windows.Forms.Label();
+            this.lblCountdown = new System.Windows.Forms.Label();
             this.pnlGameView = new System.Windows.Forms.Panel();
             this.lblDisplay = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
@@ -40,30 +41,35 @@
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.picPin = new System.Windows.Forms.PictureBox();
             this.picBalloon = new System.Windows.Forms.PictureBox();
+            this.tkbPinSize = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblHighScore = new System.Windows.Forms.Label();
+            this.lblSessionHigh = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBalloon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbPinSize)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblKillingspree
+            // lblTimeRemaining
             // 
-            this.lblKillingspree.AutoSize = true;
-            this.lblKillingspree.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKillingspree.Location = new System.Drawing.Point(543, 187);
-            this.lblKillingspree.Name = "lblKillingspree";
-            this.lblKillingspree.Size = new System.Drawing.Size(100, 13);
-            this.lblKillingspree.TabIndex = 2;
-            this.lblKillingspree.Text = "KILLING SPREE";
+            this.lblTimeRemaining.AutoSize = true;
+            this.lblTimeRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeRemaining.Location = new System.Drawing.Point(539, 114);
+            this.lblTimeRemaining.Name = "lblTimeRemaining";
+            this.lblTimeRemaining.Size = new System.Drawing.Size(111, 13);
+            this.lblTimeRemaining.TabIndex = 2;
+            this.lblTimeRemaining.Text = "TIME REMAINING";
             // 
-            // lblKillStreak
+            // lblCountdown
             // 
-            this.lblKillStreak.BackColor = System.Drawing.Color.SkyBlue;
-            this.lblKillStreak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblKillStreak.Location = new System.Drawing.Point(527, 210);
-            this.lblKillStreak.Name = "lblKillStreak";
-            this.lblKillStreak.Size = new System.Drawing.Size(134, 44);
-            this.lblKillStreak.TabIndex = 3;
-            this.lblKillStreak.Text = "c";
-            this.lblKillStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCountdown.BackColor = System.Drawing.Color.SkyBlue;
+            this.lblCountdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCountdown.Location = new System.Drawing.Point(527, 130);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(134, 44);
+            this.lblCountdown.TabIndex = 3;
+            this.lblCountdown.Text = "30";
+            this.lblCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlGameView
             // 
@@ -78,7 +84,7 @@
             // 
             this.lblDisplay.AutoSize = true;
             this.lblDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplay.Location = new System.Drawing.Point(527, 104);
+            this.lblDisplay.Location = new System.Drawing.Point(531, 24);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(126, 13);
             this.lblDisplay.TabIndex = 5;
@@ -108,11 +114,11 @@
             // 
             this.lblCountPopped.BackColor = System.Drawing.Color.SkyBlue;
             this.lblCountPopped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCountPopped.Location = new System.Drawing.Point(527, 127);
+            this.lblCountPopped.Location = new System.Drawing.Point(527, 40);
             this.lblCountPopped.Name = "lblCountPopped";
             this.lblCountPopped.Size = new System.Drawing.Size(134, 44);
             this.lblCountPopped.TabIndex = 9;
-            this.lblCountPopped.Text = "c";
+            this.lblCountPopped.Text = "0";
             this.lblCountPopped.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tmrBalloons
@@ -136,7 +142,7 @@
             // 
             // picBalloon
             // 
-            this.picBalloon.Image = global::_02_BalloonPop.Properties.Resources.BalloonGreen;
+            this.picBalloon.Image = global::_02_BalloonPop.Properties.Resources.BalloonYellow;
             this.picBalloon.Location = new System.Drawing.Point(530, 378);
             this.picBalloon.Name = "picBalloon";
             this.picBalloon.Size = new System.Drawing.Size(71, 98);
@@ -144,12 +150,58 @@
             this.picBalloon.TabIndex = 8;
             this.picBalloon.TabStop = false;
             // 
+            // tkbPinSize
+            // 
+            this.tkbPinSize.AutoSize = false;
+            this.tkbPinSize.Location = new System.Drawing.Point(524, 240);
+            this.tkbPinSize.Maximum = 4;
+            this.tkbPinSize.Name = "tkbPinSize";
+            this.tkbPinSize.Size = new System.Drawing.Size(158, 23);
+            this.tkbPinSize.TabIndex = 11;
+            this.tkbPinSize.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tkbPinSize.Value = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(530, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 12);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "PIN SIZE";
+            // 
+            // lblHighScore
+            // 
+            this.lblHighScore.BackColor = System.Drawing.Color.SkyBlue;
+            this.lblHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblHighScore.Location = new System.Drawing.Point(610, 87);
+            this.lblHighScore.Name = "lblHighScore";
+            this.lblHighScore.Size = new System.Drawing.Size(51, 15);
+            this.lblHighScore.TabIndex = 13;
+            this.lblHighScore.Text = "0";
+            this.lblHighScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSessionHigh
+            // 
+            this.lblSessionHigh.AutoSize = true;
+            this.lblSessionHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSessionHigh.Location = new System.Drawing.Point(533, 88);
+            this.lblSessionHigh.Name = "lblSessionHigh";
+            this.lblSessionHigh.Size = new System.Drawing.Size(72, 12);
+            this.lblSessionHigh.TabIndex = 14;
+            this.lblSessionHigh.Text = "SESSION HIGH";
+            // 
             // frmBalloonPop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(687, 502);
+            this.Controls.Add(this.lblSessionHigh);
+            this.Controls.Add(this.lblHighScore);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tkbPinSize);
             this.Controls.Add(this.picPin);
             this.Controls.Add(this.lblCountPopped);
             this.Controls.Add(this.picBalloon);
@@ -157,9 +209,10 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.pnlGameView);
-            this.Controls.Add(this.lblKillStreak);
-            this.Controls.Add(this.lblKillingspree);
+            this.Controls.Add(this.lblCountdown);
+            this.Controls.Add(this.lblTimeRemaining);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frmBalloonPop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,14 +222,15 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBalloonPop_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBalloon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbPinSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblKillingspree;
-        private System.Windows.Forms.Label lblKillStreak;
+        private System.Windows.Forms.Label lblTimeRemaining;
+        private System.Windows.Forms.Label lblCountdown;
         private System.Windows.Forms.Panel pnlGameView;
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Button btnStart;
@@ -186,6 +240,10 @@
         private System.Windows.Forms.PictureBox picPin;
         private System.Windows.Forms.Timer tmrBalloons;
         private System.Windows.Forms.Timer tmrGame;
+        private System.Windows.Forms.TrackBar tkbPinSize;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHighScore;
+        private System.Windows.Forms.Label lblSessionHigh;
     }
 }
 

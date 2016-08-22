@@ -67,7 +67,7 @@ namespace _02_BalloonPop
             {
                 pinX -= 5;
             }
-            else if (e.KeyCode == Keys.F)
+            else if (e.KeyCode == Keys.D)
             {
                 pinX += 5;
             }
@@ -97,7 +97,7 @@ namespace _02_BalloonPop
                     balloonY[i] = -balloonSize;
                     balloonSpeed[i] = myRandom.Next(3, 7);
                 }
-                // Set arrow near centre
+                // Set pin near centre
                 pinX = (int)(pnlGameView.Width / 2);
                 myGraphics.DrawImage(picPin.Image, pinX, pnlGameView.Height - pinSize, pinSize, pinSize);
                 // Give form focus so it can accept KeyDown events
@@ -111,8 +111,16 @@ namespace _02_BalloonPop
                 btnExit.Enabled = true;
                 tmrBalloons.Enabled = !(tmrBalloons.Enabled);
                 tmrGame.Enabled = !(tmrGame.Enabled);
+                highScoreCheck();
                 MessageBox.Show(gameOverText);
             }
+        }
+
+        // Update high score (triggered after time is elapsed or player forfeits rather than immediately after breaking high score)
+        void highScoreCheck()
+        {
+            if (score > Int32.Parse(lblHighScore.Text))
+                lblHighScore.Text = score.ToString();
         }
 
         private void tmrGame_Tick(object sender, EventArgs e)
@@ -120,6 +128,7 @@ namespace _02_BalloonPop
             // Stop game after 30 seconds have elapsed
             tmrBalloons.Enabled = false;
             tmrGame.Enabled = false;
+            highScoreCheck();
             MessageBox.Show(gameOverText);
             btnStart.Text = "Start";
             btnExit.Enabled = true;

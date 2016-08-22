@@ -118,13 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="imgBalloonGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imgBalloonGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BalloonBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BalloonBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BalloonGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BalloonGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgBalloonGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgBalloonGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BalloonRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BalloonRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BalloonYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BalloonYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

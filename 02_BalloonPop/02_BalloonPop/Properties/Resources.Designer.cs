@@ -63,9 +63,39 @@ namespace _02_BalloonPop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BalloonBlue {
+            get {
+                object obj = ResourceManager.GetObject("BalloonBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BalloonGreen {
             get {
                 object obj = ResourceManager.GetObject("BalloonGreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BalloonRed {
+            get {
+                object obj = ResourceManager.GetObject("BalloonRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BalloonYellow {
+            get {
+                object obj = ResourceManager.GetObject("BalloonYellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

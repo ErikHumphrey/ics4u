@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icoBalloonPop.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -88,6 +91,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BalloonGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BalloonBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BalloonRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BalloonYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icoBalloonPop.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
