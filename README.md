@@ -1,6 +1,6 @@
 # ICS4U
 
-ICS4U is the course code for Computer Science course for those pursuing Computer Studies in The Ontario Curriculum. It is targeted at Grade 12 students who have completed ICS3U, Introduction to Computer Science. Course material varies from school to school. These projects were made for a course at [St. Paul High School](http://pah.ocsb.ca) that revolves around C# through the use of Windows Forms in Microsoft Visual Studio.
+ICS4U is a Computer Science course for those pursuing Computer Studies in The Ontario Curriculum. It is targeted at Grade 12 students who have completed ICS3U, Introduction to Computer Science. Course material varies from school to school. These projects were made for a course at [St. Paul High School](http://pah.ocsb.ca) that revolves around C# through the use of Windows Forms in Microsoft Visual Studio.
 
 This repository contains the following:
 
