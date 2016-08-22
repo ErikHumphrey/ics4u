@@ -41,20 +41,24 @@
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.picPin = new System.Windows.Forms.PictureBox();
             this.picBalloon = new System.Windows.Forms.PictureBox();
-            this.tkbPinSize = new System.Windows.Forms.TrackBar();
+            this.tkbDifficulty = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.lblHighScore = new System.Windows.Forms.Label();
             this.lblSessionHigh = new System.Windows.Forms.Label();
+            this.pnlUserInterface = new System.Windows.Forms.Panel();
+            this.pnlScoring = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBalloon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tkbPinSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbDifficulty)).BeginInit();
+            this.pnlUserInterface.SuspendLayout();
+            this.pnlScoring.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTimeRemaining
             // 
             this.lblTimeRemaining.AutoSize = true;
             this.lblTimeRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeRemaining.Location = new System.Drawing.Point(539, 114);
+            this.lblTimeRemaining.Location = new System.Drawing.Point(24, 102);
             this.lblTimeRemaining.Name = "lblTimeRemaining";
             this.lblTimeRemaining.Size = new System.Drawing.Size(111, 13);
             this.lblTimeRemaining.TabIndex = 2;
@@ -64,7 +68,7 @@
             // 
             this.lblCountdown.BackColor = System.Drawing.Color.SkyBlue;
             this.lblCountdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCountdown.Location = new System.Drawing.Point(527, 130);
+            this.lblCountdown.Location = new System.Drawing.Point(12, 118);
             this.lblCountdown.Name = "lblCountdown";
             this.lblCountdown.Size = new System.Drawing.Size(134, 44);
             this.lblCountdown.TabIndex = 3;
@@ -75,16 +79,17 @@
             // 
             this.pnlGameView.BackColor = System.Drawing.Color.LightBlue;
             this.pnlGameView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlGameView.Location = new System.Drawing.Point(12, 12);
+            this.pnlGameView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlGameView.Location = new System.Drawing.Point(0, 0);
             this.pnlGameView.Name = "pnlGameView";
-            this.pnlGameView.Size = new System.Drawing.Size(497, 478);
+            this.pnlGameView.Size = new System.Drawing.Size(529, 502);
             this.pnlGameView.TabIndex = 4;
             // 
             // lblDisplay
             // 
             this.lblDisplay.AutoSize = true;
             this.lblDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplay.Location = new System.Drawing.Point(531, 24);
+            this.lblDisplay.Location = new System.Drawing.Point(9, 3);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(126, 13);
             this.lblDisplay.TabIndex = 5;
@@ -92,7 +97,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(530, 281);
+            this.btnStart.Location = new System.Drawing.Point(7, 244);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(145, 23);
             this.btnStart.TabIndex = 6;
@@ -102,7 +107,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(530, 310);
+            this.btnExit.Location = new System.Drawing.Point(7, 273);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(145, 23);
             this.btnExit.TabIndex = 7;
@@ -114,7 +119,7 @@
             // 
             this.lblCountPopped.BackColor = System.Drawing.Color.SkyBlue;
             this.lblCountPopped.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCountPopped.Location = new System.Drawing.Point(527, 40);
+            this.lblCountPopped.Location = new System.Drawing.Point(5, 19);
             this.lblCountPopped.Name = "lblCountPopped";
             this.lblCountPopped.Size = new System.Drawing.Size(134, 44);
             this.lblCountPopped.TabIndex = 9;
@@ -127,13 +132,13 @@
             // 
             // tmrGame
             // 
-            this.tmrGame.Interval = 30000;
+            this.tmrGame.Interval = 1000;
             this.tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
             // 
             // picPin
             // 
             this.picPin.Image = global::_02_BalloonPop.Properties.Resources.Pin;
-            this.picPin.Location = new System.Drawing.Point(626, 394);
+            this.picPin.Location = new System.Drawing.Point(169, 194);
             this.picPin.Name = "picPin";
             this.picPin.Size = new System.Drawing.Size(49, 50);
             this.picPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -143,39 +148,42 @@
             // picBalloon
             // 
             this.picBalloon.Image = global::_02_BalloonPop.Properties.Resources.BalloonYellow;
-            this.picBalloon.Location = new System.Drawing.Point(530, 378);
+            this.picBalloon.Location = new System.Drawing.Point(174, 152);
             this.picBalloon.Name = "picBalloon";
             this.picBalloon.Size = new System.Drawing.Size(71, 98);
             this.picBalloon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBalloon.TabIndex = 8;
             this.picBalloon.TabStop = false;
             // 
-            // tkbPinSize
+            // tkbDifficulty
             // 
-            this.tkbPinSize.AutoSize = false;
-            this.tkbPinSize.Location = new System.Drawing.Point(524, 240);
-            this.tkbPinSize.Maximum = 4;
-            this.tkbPinSize.Name = "tkbPinSize";
-            this.tkbPinSize.Size = new System.Drawing.Size(158, 23);
-            this.tkbPinSize.TabIndex = 11;
-            this.tkbPinSize.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.tkbPinSize.Value = 2;
+            this.tkbDifficulty.AutoSize = false;
+            this.tkbDifficulty.Location = new System.Drawing.Point(7, 215);
+            this.tkbDifficulty.Maximum = 11;
+            this.tkbDifficulty.Minimum = 1;
+            this.tkbDifficulty.Name = "tkbDifficulty";
+            this.tkbDifficulty.Size = new System.Drawing.Size(144, 23);
+            this.tkbDifficulty.TabIndex = 11;
+            this.tkbDifficulty.TickFrequency = 5;
+            this.tkbDifficulty.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tkbDifficulty.Value = 1;
+            this.tkbDifficulty.ValueChanged += new System.EventHandler(this.tkbDifficulty_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(530, 228);
+            this.label1.Location = new System.Drawing.Point(12, 194);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 12);
+            this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 12;
-            this.label1.Text = "PIN SIZE";
+            this.label1.Text = "DIFFICULTY";
             // 
             // lblHighScore
             // 
             this.lblHighScore.BackColor = System.Drawing.Color.SkyBlue;
             this.lblHighScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblHighScore.Location = new System.Drawing.Point(610, 87);
+            this.lblHighScore.Location = new System.Drawing.Point(88, 66);
             this.lblHighScore.Name = "lblHighScore";
             this.lblHighScore.Size = new System.Drawing.Size(51, 15);
             this.lblHighScore.TabIndex = 13;
@@ -186,11 +194,39 @@
             // 
             this.lblSessionHigh.AutoSize = true;
             this.lblSessionHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSessionHigh.Location = new System.Drawing.Point(533, 88);
+            this.lblSessionHigh.Location = new System.Drawing.Point(11, 67);
             this.lblSessionHigh.Name = "lblSessionHigh";
             this.lblSessionHigh.Size = new System.Drawing.Size(72, 12);
             this.lblSessionHigh.TabIndex = 14;
             this.lblSessionHigh.Text = "SESSION HIGH";
+            // 
+            // pnlUserInterface
+            // 
+            this.pnlUserInterface.Controls.Add(this.picPin);
+            this.pnlUserInterface.Controls.Add(this.pnlScoring);
+            this.pnlUserInterface.Controls.Add(this.lblTimeRemaining);
+            this.pnlUserInterface.Controls.Add(this.label1);
+            this.pnlUserInterface.Controls.Add(this.lblCountdown);
+            this.pnlUserInterface.Controls.Add(this.tkbDifficulty);
+            this.pnlUserInterface.Controls.Add(this.btnStart);
+            this.pnlUserInterface.Controls.Add(this.btnExit);
+            this.pnlUserInterface.Controls.Add(this.picBalloon);
+            this.pnlUserInterface.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlUserInterface.Location = new System.Drawing.Point(528, 0);
+            this.pnlUserInterface.Name = "pnlUserInterface";
+            this.pnlUserInterface.Size = new System.Drawing.Size(159, 502);
+            this.pnlUserInterface.TabIndex = 15;
+            // 
+            // pnlScoring
+            // 
+            this.pnlScoring.Controls.Add(this.lblDisplay);
+            this.pnlScoring.Controls.Add(this.lblSessionHigh);
+            this.pnlScoring.Controls.Add(this.lblCountPopped);
+            this.pnlScoring.Controls.Add(this.lblHighScore);
+            this.pnlScoring.Location = new System.Drawing.Point(7, 12);
+            this.pnlScoring.Name = "pnlScoring";
+            this.pnlScoring.Size = new System.Drawing.Size(145, 84);
+            this.pnlScoring.TabIndex = 15;
             // 
             // frmBalloonPop
             // 
@@ -198,19 +234,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(687, 502);
-            this.Controls.Add(this.lblSessionHigh);
-            this.Controls.Add(this.lblHighScore);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tkbPinSize);
-            this.Controls.Add(this.picPin);
-            this.Controls.Add(this.lblCountPopped);
-            this.Controls.Add(this.picBalloon);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.pnlGameView);
-            this.Controls.Add(this.lblCountdown);
-            this.Controls.Add(this.lblTimeRemaining);
+            this.Controls.Add(this.pnlUserInterface);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -222,9 +247,12 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBalloonPop_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBalloon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tkbPinSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbDifficulty)).EndInit();
+            this.pnlUserInterface.ResumeLayout(false);
+            this.pnlUserInterface.PerformLayout();
+            this.pnlScoring.ResumeLayout(false);
+            this.pnlScoring.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -240,10 +268,12 @@
         private System.Windows.Forms.PictureBox picPin;
         private System.Windows.Forms.Timer tmrBalloons;
         private System.Windows.Forms.Timer tmrGame;
-        private System.Windows.Forms.TrackBar tkbPinSize;
+        private System.Windows.Forms.TrackBar tkbDifficulty;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblHighScore;
         private System.Windows.Forms.Label lblSessionHigh;
+        private System.Windows.Forms.Panel pnlUserInterface;
+        private System.Windows.Forms.Panel pnlScoring;
     }
 }
 

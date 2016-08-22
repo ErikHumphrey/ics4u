@@ -19,8 +19,9 @@ namespace _02_BalloonPop
         int pinSize;
         int pinX;
         int score;
+        int timeLeft = 30;
 
-        const string gameOverText = "- GAME OVER -";
+        const string gameOverText = "GAME OVER";
 
         Graphics myGraphics;
         Brush blankBrush;
@@ -89,6 +90,8 @@ namespace _02_BalloonPop
                 myGraphics.Clear(pnlGameView.BackColor);
                 btnStart.Text = "Forfeit";
                 btnExit.Enabled = false;
+                tkbDifficulty.Enabled = false;
+                timeLeft = 30;
                 score = 0;
                 lblCountPopped.Text = score.ToString();
                 // Set each balloon off top of panel and give new speed
@@ -108,11 +111,12 @@ namespace _02_BalloonPop
             else
             {   // Stop game in progress
                 btnStart.Text = "Start";
-                btnExit.Enabled = true;
                 tmrBalloons.Enabled = !(tmrBalloons.Enabled);
                 tmrGame.Enabled = !(tmrGame.Enabled);
                 highScoreCheck();
                 MessageBox.Show(gameOverText);
+                tkbDifficulty.Enabled = true;
+                btnExit.Enabled = true;
             }
         }
 
@@ -120,18 +124,35 @@ namespace _02_BalloonPop
         void highScoreCheck()
         {
             if (score > Int32.Parse(lblHighScore.Text))
+            {
+                // Don't notify about new high score if there isn't one already
+                if (lblHighScore.Text != "0")
+                    MessageBox.Show("You've achieved a new high score!");
+
+                // Update high score on interface
                 lblHighScore.Text = score.ToString();
+            }
         }
 
         private void tmrGame_Tick(object sender, EventArgs e)
         {
-            // Stop game after 30 seconds have elapsed
-            tmrBalloons.Enabled = false;
-            tmrGame.Enabled = false;
-            highScoreCheck();
-            MessageBox.Show(gameOverText);
-            btnStart.Text = "Start";
-            btnExit.Enabled = true;
+            if (timeLeft > 0)
+            {
+                // Tick down remaining time and update user interface to show it
+                timeLeft--;
+                lblCountdown.Text = timeLeft.ToString();
+            }
+            else
+            {
+                // Stop game after set time has elapsed
+                btnStart.Text = "Start";
+                tmrBalloons.Enabled = false;
+                tmrGame.Enabled = false;
+                highScoreCheck();
+                MessageBox.Show(gameOverText);
+                btnExit.Enabled = true;
+                tkbDifficulty.Enabled = true;
+            }
         }
 
         private void tmrBalloons_Tick(object sender, EventArgs e)
@@ -170,6 +191,12 @@ namespace _02_BalloonPop
                 // Redraw balloon at new location
                 myGraphics.DrawImage(picBalloon.Image, balloonX[i], balloonY[i], balloonSize, balloonSize);
             }
+        }
+
+        // Increase difficulty by increasing form height
+        private void tkbDifficulty_ValueChanged(object sender, EventArgs e)
+        {
+            this.Height = 541 - tkbDifficulty.Value * 18;
         }
     }
 }
