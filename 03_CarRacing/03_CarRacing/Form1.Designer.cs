@@ -137,6 +137,10 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // tmrCar
+            // 
+            this.tmrCar.Tick += new System.EventHandler(this.tmrCar_Tick);
+            // 
             // picCar
             // 
             this.picCar.Image = global::_03_CarRacing.Properties.Resources.CarRed;

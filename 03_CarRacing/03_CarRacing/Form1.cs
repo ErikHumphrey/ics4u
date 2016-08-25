@@ -22,6 +22,12 @@ namespace _03_CarRacing
         int carsSelected;
         int[] carPicked = new int[10];
 
+        int numberMoves;
+        int[] carPosition = new int[10];
+        int[] finalPosition = new int[10];
+        int winner;
+        Random myRandom = new Random();
+
         public frmCarRace()
         {
             InitializeComponent();
@@ -90,12 +96,29 @@ namespace _03_CarRacing
                 for (int i = 0; i < numberOfCars; i++)
                     carPicked[i] = 0;
             }
+            else if (gameStatus == "Stopped" && carsSelected == 1)
+            {
+                // User clicks Race! after selecting car
+                gameStatus = "Moving";
+                gamePanel.FillRectangle(Brushes.White, 200, 37, 400, 50);
+                // Set start position and get final positions
+                numberMoves = 0;
+                for (int i = 0; i < numberOfCars; i++)
+                {
+                    carPosition[i] = 50;
+                    finalPosition[i] = 400 + myRandom.Next(360);
+                }
+                // Decide the winner
+                winner = myRandom.Next(numberOfCars);
+                finalPosition[winner] = 850;
+                tmrCar.Start();
+            }
         }
 
         private void pnlGame_MouseDown(object sender, MouseEventArgs e)
         {
             int carClicked;
-            if (gameStatus == "Stopped") ;
+            if (gameStatus == "Stopped")
             {
                 carClicked = (int)Math.Floor(Convert.ToDouble((e.Y - 10) / 60));
                 // If the car was already clicked, remove from list.
@@ -113,6 +136,23 @@ namespace _03_CarRacing
                     gamePanel.DrawLine(Pens.Red, 10, carClicked * 60 + 5, 40, carClicked * 60 + 35);
                     gamePanel.DrawLine(Pens.Red, 10, carClicked * 60 + 35, 40, carClicked * 60 + 5);
                 }
+            }
+        }
+
+        private void tmrCar_Tick(object sender, EventArgs e)
+        {
+            // Increment the number of moves and positions
+            numberMoves++;
+            for (int i = 0; i < numberOfCars; i++)
+            {
+                gamePanel.FillRectangle(Brushes.White, carPosition[i], i * 60 + 10, 70, 20);
+                carPosition[i] += (finalPosition[i] - 50) / 50;
+                gamePanel.DrawImage(picCar.Image, carPosition[i], i * 60 + 10, 70, 20);
+            }
+            if (numberMoves == 49)
+            {
+                tmrCar.Stop();
+                gameStatus = "Initial";
             }
         }
     }
