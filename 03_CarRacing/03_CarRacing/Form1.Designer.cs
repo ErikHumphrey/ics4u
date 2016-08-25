@@ -39,6 +39,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.tmrCar = new System.Windows.Forms.Timer(this.components);
             this.picCar = new System.Windows.Forms.PictureBox();
+            this.lblInstructions = new System.Windows.Forms.Label();
             this.pnlGame.SuspendLayout();
             this.pnlControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCar)).BeginInit();
@@ -46,6 +47,7 @@
             // 
             // pnlGame
             // 
+            this.pnlGame.Controls.Add(this.lblInstructions);
             this.pnlGame.Controls.Add(this.picCar);
             this.pnlGame.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlGame.Location = new System.Drawing.Point(103, 0);
@@ -77,6 +79,7 @@
             this.btnDecrease.TabIndex = 0;
             this.btnDecrease.Text = "<";
             this.btnDecrease.UseVisualStyleBackColor = true;
+            this.btnDecrease.Click += new System.EventHandler(this.btnDecrease_Click);
             // 
             // btnIncrease
             // 
@@ -87,6 +90,7 @@
             this.btnIncrease.TabIndex = 1;
             this.btnIncrease.Text = ">";
             this.btnIncrease.UseVisualStyleBackColor = true;
+            this.btnIncrease.Click += new System.EventHandler(this.btnIncrease_Click);
             // 
             // lblCarNumTitle
             // 
@@ -129,6 +133,7 @@
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // picCar
             // 
@@ -141,6 +146,16 @@
             this.picCar.TabStop = false;
             this.picCar.Visible = false;
             // 
+            // lblInstructions
+            // 
+            this.lblInstructions.AutoSize = true;
+            this.lblInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstructions.Location = new System.Drawing.Point(26, 24);
+            this.lblInstructions.Name = "lblInstructions";
+            this.lblInstructions.Size = new System.Drawing.Size(210, 20);
+            this.lblInstructions.TabIndex = 1;
+            this.lblInstructions.Text = "Instructions will appear here.";
+            // 
             // frmCarRace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +167,7 @@
             this.Name = "frmCarRace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Car Race";
+            this.Load += new System.EventHandler(this.frmCarRace_Load);
             this.pnlGame.ResumeLayout(false);
             this.pnlGame.PerformLayout();
             this.pnlControls.ResumeLayout(false);
@@ -172,6 +188,7 @@
         private System.Windows.Forms.Button btnDecrease;
         private System.Windows.Forms.PictureBox picCar;
         private System.Windows.Forms.Timer tmrCar;
+        private System.Windows.Forms.Label lblInstructions;
     }
 }
 
