@@ -54,6 +54,7 @@
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(900, 626);
             this.pnlGame.TabIndex = 0;
+            this.pnlGame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlGame_MouseDown);
             // 
             // pnlControls
             // 
@@ -123,6 +124,7 @@
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Race!";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnExit
             // 
