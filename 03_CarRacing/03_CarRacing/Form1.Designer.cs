@@ -1,6 +1,6 @@
 ﻿namespace _03_CarRacing
 {
-    partial class Form1
+    partial class frmCarRace
     {
         /// <summary>
         /// Required designer variable.
@@ -28,124 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.pnlGame = new System.Windows.Forms.Panel();
+            this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnDecrease = new System.Windows.Forms.Button();
+            this.btnIncrease = new System.Windows.Forms.Button();
+            this.lblCarNumTitle = new System.Windows.Forms.Label();
+            this.lblCarCount = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.tmrCar = new System.Windows.Forms.Timer(this.components);
+            this.picCar = new System.Windows.Forms.PictureBox();
+            this.pnlGame.SuspendLayout();
+            this.pnlControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCar)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlGame
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(103, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 626);
-            this.panel1.TabIndex = 0;
+            this.pnlGame.Controls.Add(this.picCar);
+            this.pnlGame.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlGame.Location = new System.Drawing.Point(103, 0);
+            this.pnlGame.Name = "pnlGame";
+            this.pnlGame.Size = new System.Drawing.Size(900, 626);
+            this.pnlGame.TabIndex = 0;
             // 
-            // panel2
+            // pnlControls
             // 
-            this.panel2.BackColor = System.Drawing.Color.Blue;
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(103, 626);
-            this.panel2.TabIndex = 1;
+            this.pnlControls.BackColor = System.Drawing.Color.Blue;
+            this.pnlControls.Controls.Add(this.btnExit);
+            this.pnlControls.Controls.Add(this.btnStart);
+            this.pnlControls.Controls.Add(this.lblCarCount);
+            this.pnlControls.Controls.Add(this.lblCarNumTitle);
+            this.pnlControls.Controls.Add(this.btnIncrease);
+            this.pnlControls.Controls.Add(this.btnDecrease);
+            this.pnlControls.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlControls.Location = new System.Drawing.Point(0, 0);
+            this.pnlControls.Name = "pnlControls";
+            this.pnlControls.Size = new System.Drawing.Size(103, 626);
+            this.pnlControls.TabIndex = 1;
             // 
-            // button1
+            // btnDecrease
             // 
-            this.button1.Location = new System.Drawing.Point(9, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDecrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecrease.Location = new System.Drawing.Point(9, 229);
+            this.btnDecrease.Name = "btnDecrease";
+            this.btnDecrease.Size = new System.Drawing.Size(40, 40);
+            this.btnDecrease.TabIndex = 0;
+            this.btnDecrease.Text = "<";
+            this.btnDecrease.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnIncrease
             // 
-            this.button2.Location = new System.Drawing.Point(54, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnIncrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncrease.Location = new System.Drawing.Point(54, 229);
+            this.btnIncrease.Name = "btnIncrease";
+            this.btnIncrease.Size = new System.Drawing.Size(40, 40);
+            this.btnIncrease.TabIndex = 1;
+            this.btnIncrease.Text = ">";
+            this.btnIncrease.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblCarNumTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(10, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 40);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Number of\r\nCars";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblCarNumTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarNumTitle.ForeColor = System.Drawing.Color.Yellow;
+            this.lblCarNumTitle.Location = new System.Drawing.Point(2, 152);
+            this.lblCarNumTitle.Name = "lblCarNumTitle";
+            this.lblCarNumTitle.Size = new System.Drawing.Size(100, 46);
+            this.lblCarNumTitle.TabIndex = 2;
+            this.lblCarNumTitle.Text = "Number of\r\nCars";
+            this.lblCarNumTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblCarCount
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(41, 198);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 24);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "3";
+            this.lblCarCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarCount.ForeColor = System.Drawing.Color.White;
+            this.lblCarCount.Location = new System.Drawing.Point(3, 198);
+            this.lblCarCount.Name = "lblCarCount";
+            this.lblCarCount.Size = new System.Drawing.Size(100, 23);
+            this.lblCarCount.TabIndex = 3;
+            this.lblCarCount.Text = "0";
+            this.lblCarCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btnStart
             // 
-            this.button3.Location = new System.Drawing.Point(14, 291);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Race!";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnStart.Location = new System.Drawing.Point(10, 279);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(83, 41);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Race!";
+            this.btnStart.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnExit
             // 
-            this.button4.Location = new System.Drawing.Point(25, 320);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(47, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Race!";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnExit.Location = new System.Drawing.Point(25, 320);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(52, 27);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // picCar
+            // 
+            this.picCar.Image = global::_03_CarRacing.Properties.Resources.CarRed;
+            this.picCar.Location = new System.Drawing.Point(38, 550);
+            this.picCar.Name = "picCar";
+            this.picCar.Size = new System.Drawing.Size(148, 45);
+            this.picCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picCar.TabIndex = 0;
+            this.picCar.TabStop = false;
+            this.picCar.Visible = false;
+            // 
+            // frmCarRace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 626);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Controls.Add(this.pnlControls);
+            this.Controls.Add(this.pnlGame);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "frmCarRace";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Car Race";
+            this.pnlGame.ResumeLayout(false);
+            this.pnlGame.PerformLayout();
+            this.pnlControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pnlGame;
+        private System.Windows.Forms.Panel pnlControls;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Label lblCarCount;
+        private System.Windows.Forms.Label lblCarNumTitle;
+        private System.Windows.Forms.Button btnIncrease;
+        private System.Windows.Forms.Button btnDecrease;
+        private System.Windows.Forms.PictureBox picCar;
+        private System.Windows.Forms.Timer tmrCar;
     }
 }
 

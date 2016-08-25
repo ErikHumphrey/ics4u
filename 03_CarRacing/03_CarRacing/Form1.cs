@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _03_CarRacing
 {
-    public partial class Form1 : Form
+    public partial class frmCarRace : Form
     {
-        public Form1()
+        public frmCarRace()
         {
             InitializeComponent();
         }
