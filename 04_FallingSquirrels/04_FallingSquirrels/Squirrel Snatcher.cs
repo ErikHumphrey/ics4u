@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace _04_FallingSquirrels
 {
-    public partial class Form1 : Form
+    public partial class frmSquirrelsFromTheSky : Form
     {
-        public Form1()
+        public frmSquirrelsFromTheSky()
         {
             InitializeComponent();
+        }
+
+        private void frmSquirrelsFromTheSky_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

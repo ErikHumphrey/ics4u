@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Squirrel Snatcher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Squirrel Snatcher.Designer.cs">
+      <DependentUpon>Squirrel Snatcher.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Squirrel Snatcher.resx">
+      <DependentUpon>Squirrel Snatcher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEagle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgSquirrel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHand.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgGrabber.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHandGrabbing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgGrassRepeating.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgGrassBlades.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chrome_2016-09-04_02-55-36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgGrassTile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
