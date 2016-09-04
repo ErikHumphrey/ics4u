@@ -79,6 +79,7 @@
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.picHelicopter);
             this.Controls.Add(this.pnlDisplay);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSimpleAnimation";
             this.Text = "Simple Animation";
