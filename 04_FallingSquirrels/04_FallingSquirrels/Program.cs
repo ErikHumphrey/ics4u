@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _04_FallingSquirrels
+namespace SquirrelSnatcher
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace _04_FallingSquirrels
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmSquirrelsFromTheSky());
+            Application.Run(new frmSquirrelSnatcher());
         }
     }
 }

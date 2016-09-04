@@ -1,6 +1,6 @@
-﻿namespace _04_FallingSquirrels
+﻿namespace SquirrelSnatcher
 {
-    partial class frmSquirrelsFromTheSky
+    partial class frmSquirrelSnatcher
     {
         /// <summary>
         /// Required designer variable.
@@ -28,39 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSquirrelsFromTheSky));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSquirrelSnatcher));
             this.pnlControls = new System.Windows.Forms.Panel();
             this.btnDifficultyUp = new System.Windows.Forms.Button();
             this.btnDifficultyDown = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTimeRemaining = new System.Windows.Forms.Label();
+            this.lblTimeTitle = new System.Windows.Forms.Label();
+            this.lblSquirrelsCount = new System.Windows.Forms.Label();
+            this.lblSquirrelsTitle = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
-            this.lblCarCount = new System.Windows.Forms.Label();
-            this.lblCarNumTitle = new System.Windows.Forms.Label();
+            this.lblDifficultyLevel = new System.Windows.Forms.Label();
+            this.lblDifficultyTitle = new System.Windows.Forms.Label();
+            this.tmrGameTime = new System.Windows.Forms.Timer(this.components);
             this.pnlGame = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblInstructions = new System.Windows.Forms.Label();
+            this.btnShowCredits = new System.Windows.Forms.Button();
+            this.picHole = new System.Windows.Forms.PictureBox();
+            this.picSquirrel = new System.Windows.Forms.PictureBox();
+            this.picHand = new System.Windows.Forms.PictureBox();
             this.pnlControls.SuspendLayout();
             this.pnlGame.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquirrel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHand)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlControls
             // 
             this.pnlControls.BackColor = System.Drawing.Color.Blue;
+            this.pnlControls.Controls.Add(this.btnShowCredits);
             this.pnlControls.Controls.Add(this.btnDifficultyUp);
             this.pnlControls.Controls.Add(this.btnDifficultyDown);
-            this.pnlControls.Controls.Add(this.label3);
-            this.pnlControls.Controls.Add(this.label4);
-            this.pnlControls.Controls.Add(this.label1);
-            this.pnlControls.Controls.Add(this.label2);
+            this.pnlControls.Controls.Add(this.lblTimeRemaining);
+            this.pnlControls.Controls.Add(this.lblTimeTitle);
+            this.pnlControls.Controls.Add(this.lblSquirrelsCount);
+            this.pnlControls.Controls.Add(this.lblSquirrelsTitle);
             this.pnlControls.Controls.Add(this.btnStart);
-            this.pnlControls.Controls.Add(this.lblCarCount);
-            this.pnlControls.Controls.Add(this.lblCarNumTitle);
+            this.pnlControls.Controls.Add(this.lblDifficultyLevel);
+            this.pnlControls.Controls.Add(this.lblDifficultyTitle);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControls.Location = new System.Drawing.Point(0, 0);
             this.pnlControls.Name = "pnlControls";
@@ -76,6 +82,7 @@
             this.btnDifficultyUp.TabIndex = 1;
             this.btnDifficultyUp.Text = ">";
             this.btnDifficultyUp.UseVisualStyleBackColor = true;
+            this.btnDifficultyUp.Click += new System.EventHandler(this.btnDifficultyUp_Click);
             // 
             // btnDifficultyDown
             // 
@@ -86,50 +93,52 @@
             this.btnDifficultyDown.TabIndex = 0;
             this.btnDifficultyDown.Text = "<";
             this.btnDifficultyDown.UseVisualStyleBackColor = true;
+            this.btnDifficultyDown.Visible = false;
+            this.btnDifficultyDown.Click += new System.EventHandler(this.btnDifficultyDown_Click);
             // 
-            // label3
+            // lblTimeRemaining
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "0";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTimeRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeRemaining.ForeColor = System.Drawing.Color.White;
+            this.lblTimeRemaining.Location = new System.Drawing.Point(1, 81);
+            this.lblTimeRemaining.Name = "lblTimeRemaining";
+            this.lblTimeRemaining.Size = new System.Drawing.Size(100, 23);
+            this.lblTimeRemaining.TabIndex = 9;
+            this.lblTimeRemaining.Text = "30";
+            this.lblTimeRemaining.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // lblTimeTitle
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Yellow;
-            this.label4.Location = new System.Drawing.Point(0, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 46);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Time Left";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTimeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeTitle.ForeColor = System.Drawing.Color.Yellow;
+            this.lblTimeTitle.Location = new System.Drawing.Point(0, 35);
+            this.lblTimeTitle.Name = "lblTimeTitle";
+            this.lblTimeTitle.Size = new System.Drawing.Size(100, 46);
+            this.lblTimeTitle.TabIndex = 8;
+            this.lblTimeTitle.Text = "Time Left";
+            this.lblTimeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblSquirrelsCount
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSquirrelsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSquirrelsCount.ForeColor = System.Drawing.Color.White;
+            this.lblSquirrelsCount.Location = new System.Drawing.Point(1, 147);
+            this.lblSquirrelsCount.Name = "lblSquirrelsCount";
+            this.lblSquirrelsCount.Size = new System.Drawing.Size(100, 23);
+            this.lblSquirrelsCount.TabIndex = 7;
+            this.lblSquirrelsCount.Text = "0";
+            this.lblSquirrelsCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblSquirrelsTitle
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(0, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 46);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Squirrels";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSquirrelsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSquirrelsTitle.ForeColor = System.Drawing.Color.Yellow;
+            this.lblSquirrelsTitle.Location = new System.Drawing.Point(0, 101);
+            this.lblSquirrelsTitle.Name = "lblSquirrelsTitle";
+            this.lblSquirrelsTitle.Size = new System.Drawing.Size(100, 46);
+            this.lblSquirrelsTitle.TabIndex = 6;
+            this.lblSquirrelsTitle.Text = "Squirrels";
+            this.lblSquirrelsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnStart
             // 
@@ -140,34 +149,41 @@
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Play";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // lblCarCount
+            // lblDifficultyLevel
             // 
-            this.lblCarCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarCount.ForeColor = System.Drawing.Color.White;
-            this.lblCarCount.Location = new System.Drawing.Point(3, 213);
-            this.lblCarCount.Name = "lblCarCount";
-            this.lblCarCount.Size = new System.Drawing.Size(100, 23);
-            this.lblCarCount.TabIndex = 3;
-            this.lblCarCount.Text = "0";
-            this.lblCarCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDifficultyLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDifficultyLevel.ForeColor = System.Drawing.Color.White;
+            this.lblDifficultyLevel.Location = new System.Drawing.Point(3, 213);
+            this.lblDifficultyLevel.Name = "lblDifficultyLevel";
+            this.lblDifficultyLevel.Size = new System.Drawing.Size(100, 23);
+            this.lblDifficultyLevel.TabIndex = 3;
+            this.lblDifficultyLevel.Text = "0";
+            this.lblDifficultyLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblCarNumTitle
+            // lblDifficultyTitle
             // 
-            this.lblCarNumTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarNumTitle.ForeColor = System.Drawing.Color.Yellow;
-            this.lblCarNumTitle.Location = new System.Drawing.Point(2, 167);
-            this.lblCarNumTitle.Name = "lblCarNumTitle";
-            this.lblCarNumTitle.Size = new System.Drawing.Size(100, 46);
-            this.lblCarNumTitle.TabIndex = 2;
-            this.lblCarNumTitle.Text = "Difficulty";
-            this.lblCarNumTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDifficultyTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDifficultyTitle.ForeColor = System.Drawing.Color.Yellow;
+            this.lblDifficultyTitle.Location = new System.Drawing.Point(2, 167);
+            this.lblDifficultyTitle.Name = "lblDifficultyTitle";
+            this.lblDifficultyTitle.Size = new System.Drawing.Size(100, 46);
+            this.lblDifficultyTitle.TabIndex = 2;
+            this.lblDifficultyTitle.Text = "Difficulty";
+            this.lblDifficultyTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tmrGameTime
+            // 
+            this.tmrGameTime.Interval = 1000;
+            this.tmrGameTime.Tick += new System.EventHandler(this.tmrGameTime_Tick);
             // 
             // pnlGame
             // 
-            this.pnlGame.BackgroundImage = global::_04_FallingSquirrels.Properties.Resources.imgGrassTile;
-            this.pnlGame.Controls.Add(this.pictureBox2);
-            this.pnlGame.Controls.Add(this.pictureBox1);
+            this.pnlGame.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.pnlGame.Controls.Add(this.picHole);
+            this.pnlGame.Controls.Add(this.picSquirrel);
+            this.pnlGame.Controls.Add(this.picHand);
             this.pnlGame.Controls.Add(this.lblInstructions);
             this.pnlGame.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlGame.Location = new System.Drawing.Point(100, 0);
@@ -175,41 +191,65 @@
             this.pnlGame.Size = new System.Drawing.Size(900, 600);
             this.pnlGame.TabIndex = 2;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(642, 298);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::_04_FallingSquirrels.Properties.Resources.imgHandGrabbing;
-            this.pictureBox1.Location = new System.Drawing.Point(762, 284);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 88);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // lblInstructions
             // 
-            this.lblInstructions.AutoSize = true;
+            this.lblInstructions.BackColor = System.Drawing.Color.SkyBlue;
+            this.lblInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstructions.Location = new System.Drawing.Point(26, 24);
+            this.lblInstructions.Location = new System.Drawing.Point(100, 157);
             this.lblInstructions.Name = "lblInstructions";
-            this.lblInstructions.Size = new System.Drawing.Size(210, 20);
+            this.lblInstructions.Size = new System.Drawing.Size(700, 287);
             this.lblInstructions.TabIndex = 1;
             this.lblInstructions.Text = "Instructions will appear here.";
+            this.lblInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmSquirrelsFromTheSky
+            // btnShowCredits
+            // 
+            this.btnShowCredits.Location = new System.Drawing.Point(12, 573);
+            this.btnShowCredits.Name = "btnShowCredits";
+            this.btnShowCredits.Size = new System.Drawing.Size(75, 23);
+            this.btnShowCredits.TabIndex = 10;
+            this.btnShowCredits.Text = "Credits";
+            this.btnShowCredits.UseVisualStyleBackColor = true;
+            this.btnShowCredits.Click += new System.EventHandler(this.btnShowCredits_Click);
+            // 
+            // picHole
+            // 
+            this.picHole.BackColor = System.Drawing.Color.Transparent;
+            this.picHole.Image = global::_04_FallingSquirrels.Properties.Resources.imgHole;
+            this.picHole.Location = new System.Drawing.Point(28, 346);
+            this.picHole.Name = "picHole";
+            this.picHole.Size = new System.Drawing.Size(50, 64);
+            this.picHole.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHole.TabIndex = 4;
+            this.picHole.TabStop = false;
+            this.picHole.Visible = false;
+            // 
+            // picSquirrel
+            // 
+            this.picSquirrel.BackColor = System.Drawing.Color.Transparent;
+            this.picSquirrel.Image = ((System.Drawing.Image)(resources.GetObject("picSquirrel.Image")));
+            this.picSquirrel.Location = new System.Drawing.Point(642, 350);
+            this.picSquirrel.Name = "picSquirrel";
+            this.picSquirrel.Size = new System.Drawing.Size(68, 60);
+            this.picSquirrel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSquirrel.TabIndex = 3;
+            this.picSquirrel.TabStop = false;
+            this.picSquirrel.Visible = false;
+            // 
+            // picHand
+            // 
+            this.picHand.BackColor = System.Drawing.Color.Transparent;
+            this.picHand.Image = ((System.Drawing.Image)(resources.GetObject("picHand.Image")));
+            this.picHand.Location = new System.Drawing.Point(762, 336);
+            this.picHand.Name = "picHand";
+            this.picHand.Size = new System.Drawing.Size(126, 88);
+            this.picHand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHand.TabIndex = 2;
+            this.picHand.TabStop = false;
+            this.picHand.Visible = false;
+            // 
+            // frmSquirrelSnatcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,15 +257,15 @@
             this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.pnlControls);
             this.DoubleBuffered = true;
-            this.Name = "frmSquirrelsFromTheSky";
+            this.Name = "frmSquirrelSnatcher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Squirrel Snatcher";
             this.Load += new System.EventHandler(this.frmSquirrelsFromTheSky_Load);
             this.pnlControls.ResumeLayout(false);
             this.pnlGame.ResumeLayout(false);
-            this.pnlGame.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSquirrel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHand)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,19 +273,22 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlGame;
-        private System.Windows.Forms.Label lblInstructions;
         private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.Button btnDifficultyUp;
         private System.Windows.Forms.Button btnDifficultyDown;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTimeRemaining;
+        private System.Windows.Forms.Label lblTimeTitle;
+        private System.Windows.Forms.Label lblSquirrelsCount;
+        private System.Windows.Forms.Label lblSquirrelsTitle;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Label lblCarCount;
-        private System.Windows.Forms.Label lblCarNumTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblDifficultyLevel;
+        private System.Windows.Forms.Label lblDifficultyTitle;
+        private System.Windows.Forms.PictureBox picHand;
+        private System.Windows.Forms.PictureBox picSquirrel;
+        private System.Windows.Forms.PictureBox picHole;
+        private System.Windows.Forms.Timer tmrGameTime;
+        private System.Windows.Forms.Label lblInstructions;
+        private System.Windows.Forms.Button btnShowCredits;
     }
 }
 

@@ -63,46 +63,6 @@ namespace _04_FallingSquirrels.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap chrome_2016_09_04_02_55_36 {
-            get {
-                object obj = ResourceManager.GetObject("chrome_2016-09-04_02-55-36", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgGrabber {
-            get {
-                object obj = ResourceManager.GetObject("imgGrabber", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgGrassBlades {
-            get {
-                object obj = ResourceManager.GetObject("imgGrassBlades", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgGrassRepeating {
-            get {
-                object obj = ResourceManager.GetObject("imgGrassRepeating", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap imgGrassTile {
             get {
                 object obj = ResourceManager.GetObject("imgGrassTile", resourceCulture);
@@ -113,9 +73,19 @@ namespace _04_FallingSquirrels.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imgHandGrabbing {
+        internal static System.Drawing.Bitmap imgHand {
             get {
-                object obj = ResourceManager.GetObject("imgHandGrabbing", resourceCulture);
+                object obj = ResourceManager.GetObject("imgHand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgHole {
+            get {
+                object obj = ResourceManager.GetObject("imgHole", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
