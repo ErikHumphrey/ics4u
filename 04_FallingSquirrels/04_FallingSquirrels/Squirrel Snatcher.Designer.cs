@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSquirrelSnatcher));
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnShowCredits = new System.Windows.Forms.Button();
             this.btnDifficultyUp = new System.Windows.Forms.Button();
             this.btnDifficultyDown = new System.Windows.Forms.Button();
             this.lblTimeRemaining = new System.Windows.Forms.Label();
@@ -42,11 +43,10 @@
             this.lblDifficultyTitle = new System.Windows.Forms.Label();
             this.tmrGameTime = new System.Windows.Forms.Timer(this.components);
             this.pnlGame = new System.Windows.Forms.Panel();
-            this.lblInstructions = new System.Windows.Forms.Label();
-            this.btnShowCredits = new System.Windows.Forms.Button();
             this.picHole = new System.Windows.Forms.PictureBox();
             this.picSquirrel = new System.Windows.Forms.PictureBox();
             this.picHand = new System.Windows.Forms.PictureBox();
+            this.lblInstructions = new System.Windows.Forms.Label();
             this.pnlControls.SuspendLayout();
             this.pnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHole)).BeginInit();
@@ -72,6 +72,16 @@
             this.pnlControls.Name = "pnlControls";
             this.pnlControls.Size = new System.Drawing.Size(1000, 600);
             this.pnlControls.TabIndex = 3;
+            // 
+            // btnShowCredits
+            // 
+            this.btnShowCredits.Location = new System.Drawing.Point(12, 573);
+            this.btnShowCredits.Name = "btnShowCredits";
+            this.btnShowCredits.Size = new System.Drawing.Size(75, 23);
+            this.btnShowCredits.TabIndex = 10;
+            this.btnShowCredits.Text = "Credits";
+            this.btnShowCredits.UseVisualStyleBackColor = true;
+            this.btnShowCredits.Click += new System.EventHandler(this.btnShowCredits_Click);
             // 
             // btnDifficultyUp
             // 
@@ -175,7 +185,7 @@
             // 
             // tmrGameTime
             // 
-            this.tmrGameTime.Interval = 1000;
+            this.tmrGameTime.Interval = 15;
             this.tmrGameTime.Tick += new System.EventHandler(this.tmrGameTime_Tick);
             // 
             // pnlGame
@@ -190,28 +200,7 @@
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(900, 600);
             this.pnlGame.TabIndex = 2;
-            // 
-            // lblInstructions
-            // 
-            this.lblInstructions.BackColor = System.Drawing.Color.SkyBlue;
-            this.lblInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInstructions.Location = new System.Drawing.Point(100, 157);
-            this.lblInstructions.Name = "lblInstructions";
-            this.lblInstructions.Size = new System.Drawing.Size(700, 287);
-            this.lblInstructions.TabIndex = 1;
-            this.lblInstructions.Text = "Instructions will appear here.";
-            this.lblInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnShowCredits
-            // 
-            this.btnShowCredits.Location = new System.Drawing.Point(12, 573);
-            this.btnShowCredits.Name = "btnShowCredits";
-            this.btnShowCredits.Size = new System.Drawing.Size(75, 23);
-            this.btnShowCredits.TabIndex = 10;
-            this.btnShowCredits.Text = "Credits";
-            this.btnShowCredits.UseVisualStyleBackColor = true;
-            this.btnShowCredits.Click += new System.EventHandler(this.btnShowCredits_Click);
+            this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
             // 
             // picHole
             // 
@@ -249,6 +238,18 @@
             this.picHand.TabStop = false;
             this.picHand.Visible = false;
             // 
+            // lblInstructions
+            // 
+            this.lblInstructions.BackColor = System.Drawing.Color.SkyBlue;
+            this.lblInstructions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInstructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstructions.Location = new System.Drawing.Point(100, 157);
+            this.lblInstructions.Name = "lblInstructions";
+            this.lblInstructions.Size = new System.Drawing.Size(700, 287);
+            this.lblInstructions.TabIndex = 1;
+            this.lblInstructions.Text = "Instructions will appear here.";
+            this.lblInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmSquirrelSnatcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,10 +258,13 @@
             this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.pnlControls);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Name = "frmSquirrelSnatcher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Squirrel Snatcher";
             this.Load += new System.EventHandler(this.frmSquirrelsFromTheSky_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmSquirrelSnatcher_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmSquirrelSnatcher_KeyUp);
             this.pnlControls.ResumeLayout(false);
             this.pnlGame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHole)).EndInit();

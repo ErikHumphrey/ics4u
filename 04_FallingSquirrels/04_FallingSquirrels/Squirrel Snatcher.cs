@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SquirrelSnatcher
@@ -18,14 +12,40 @@ namespace SquirrelSnatcher
         int score;
         Graphics gamePanel;
 
-        int handW, handH, handX, handY;
-        int handDeltaY;
+        int handW, handH, handY;
+        const int handDeltaY = 5; // Choose how much to move the hand with each key/button press
 
-        int holeW, holeH, holeX, holeY;
+        int holeW, holeH, holeY;
         int squirrelW, squirrelH, squirrelX, squirrelY;
         Random rnd = new Random();
 
         int squirrelSpeed;
+
+        string handDirection = "Neutral";
+
+        public frmSquirrelSnatcher()
+        {
+            InitializeComponent();
+        }
+
+        private void frmSquirrelSnatcher_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Check for up or down numpad arrow key to move the Hand
+            if ((int)e.KeyCode == 104)
+            {
+                handDirection = "Up";
+            }
+            else if ((int)e.KeyCode == 98)
+            {
+                handDirection = "Down";
+            }
+        }
+
+        private void frmSquirrelSnatcher_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Key released
+            handDirection = "Neutral";
+        }
 
         // Open a dialogue containing image credits for the game 
         private void btnShowCredits_Click(object sender, EventArgs e)
@@ -36,11 +56,27 @@ namespace SquirrelSnatcher
 
         private void tmrGameTime_Tick(object sender, EventArgs e)
         {
-            timeLeft -= 1000;
+            timeLeft -= 15;
             DisplayTimeScore();
             // Move squirrel
             RemoveSquirrel();
-            PositionHoleAndSquirrel();
+            gamePanel.DrawImage(picSquirrel.Image, squirrelX += 5, squirrelY, squirrelW, squirrelH);
+
+            // Move hand
+            if (handDirection == "Up")
+            {
+                handY -= handDeltaY;
+                RemoveHand();
+                //gamePanel.DrawImage(picHand.Image, 762, handY -= handDeltaY, handW, handH);
+                pnlGame.Refresh();
+            }
+            else if (handDirection == "Down")
+            {
+                handY += handDeltaY;
+                RemoveHand();
+                //gamePanel.DrawImage(picHand.Image, 762, handY += handDeltaY, handW, handH);
+                pnlGame.Refresh();
+            }
         }
 
         private void RemoveSquirrel()
@@ -48,10 +84,17 @@ namespace SquirrelSnatcher
             gamePanel.FillRectangle(Brushes.MediumSeaGreen, squirrelX, squirrelY, squirrelW, squirrelH);
         }
 
-
-        public frmSquirrelSnatcher()
+        private void pnlGame_Paint(object sender, PaintEventArgs e)
         {
-            InitializeComponent();
+            if (handDirection != "Neutral")
+            {
+                e.Graphics.DrawImage(picHand.Image, 762, handY, handW, handH);
+            }
+        }
+
+        private void RemoveHand()
+        {
+            gamePanel.FillRectangle(Brushes.MediumSeaGreen, 762, handY, handW, handH);
         }
 
         private void frmSquirrelsFromTheSky_Load(object sender, EventArgs e)
@@ -103,8 +146,8 @@ namespace SquirrelSnatcher
         private void PositionHoleAndSquirrel()
         {
             holeY = rnd.Next(0, pnlGame.Height - holeH);
-            gamePanel.DrawImage(picSquirrel.Image, 0, holeY, holeW, holeH);
-            squirrelY = Convert.ToInt32(holeY + 0.5 * (holeH - squirrelY));
+            gamePanel.DrawImage(picHole.Image, 0, holeY, holeW, holeH);
+            squirrelY = Convert.ToInt32(holeY + 0.01 * (holeH - squirrelY));
             squirrelX = holeY;
             gamePanel.DrawImage(picSquirrel.Image, squirrelX, squirrelY, squirrelW, squirrelH);
         }
