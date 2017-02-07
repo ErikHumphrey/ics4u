@@ -104,32 +104,7 @@ public class TicTacToe {
 		userInput.close(); // Close scanner to remove resource leak
 		
 
-		Tile[0,3] = Tile.EMPTY;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		tiles[2] = Tile.EMPTY;
 		
 		
 		
