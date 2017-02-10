@@ -1,7 +1,7 @@
 /* Author: Erik Humphrey
  * Date started: February 9th, 2017
  * Project title: Module 2 Exercise - Intro to Java Applets
- * Description: Program that prints a static tic-tac-toe board to the console.
+ * Description: Applet that uses 2D graphics to render perspective landscape(s) taught in middle school art class
  */
 
 import java.applet.*;
@@ -18,13 +18,33 @@ public void init ()
 	public void paint (Graphics g)
 	{
 		Color sky = new Color(137, 207, 240);
+		drawSun(g);
+		drawHorizon(g);
+		drawRoad(g);
 		drawWater(g);
 		drawTree(g);
+
 		setBackground(sky);
 		this.setSize(500, 400);
 		// this.setLocationRelativeTo(null);
 		// this.setSize(800,500);
+
 	}
+	
+	public static void drawWater (Graphics g)
+	{
+		//Color turquoise = new Color(64, 224, 208);
+		//g.setColor(turquoise);
+		//Polygon wave1;
+		//wave1 = new Polygon();
+		//wave1.addPoint(0, 20);
+		//wave1.addPoint(30, 260);
+		//wave1.addPoint(40, 275);
+		//wave1.addPoint(50, 279);
+		//wave1.addPoint(60, 300);
+		////g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+	}
+	
 	public static void drawHouse (Graphics g)
 	{
 //			
@@ -49,31 +69,65 @@ public void init ()
 			
 	}
 	
-	public static void drawWater (Graphics g)
+	public static void drawRoad (Graphics g)
 	{
-		Color turquoise = new Color(64, 224, 208);
-		g.setColor(turquoise);
-		Polygon wave1;
-		wave1 = new Polygon();
-		wave1.addPoint(0, 20);
-		wave1.addPoint(30, 260);
-		wave1.addPoint(40, 275);
-		wave1.addPoint(50, 279);
-		wave1.addPoint(60, 300);
-		g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+		g.setColor(new Color(32, 32, 32));
+		Polygon road;
+		road = new Polygon();
+		road.addPoint(200, 200);
+		road.addPoint(300, 200);
+		road.addPoint(400, 400);
+		road.addPoint(100, 400);
+		g.fillPolygon(road);
+
 	}
+	
+	
+	public static void drawSun(Graphics g)
+	{
+		g.setColor(Color.yellow);
+		g.fillOval(200, 150, 100, 100);
+		// Color turquoise = new Color(64, 224, 208);
+
+		//Polygon wave1;
+		//wave1 = new Polygon();
+		//wave1.addPoint(0, 20);
+		//wave1.addPoint(30, 260);
+		//wave1.addPoint(40, 275);
+		//wave1.addPoint(50, 279);
+		//wave1.addPoint(60, 300);
+		//g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+	}
+	
+	public static void drawHorizon (Graphics g)
+	{
+		// Color turquoise = new Color(64, 224, 208);
+		// g.setColor(turquoise);
+		
+		g.setColor(new Color(18, 127, 16));
+		// Polygon wave1;
+		// wave1 = new Polygon();
+		//wave1.addPoint(0, 20);
+		 //wave1.addPoint(30, 260);
+		//wave1.addPoint(40, 275);
+		//wave1.addPoint(50, 279);
+		//wave1.addPoint(60, 300);
+		//g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+		g.fillRect (0, 200, 500, 400);
+	}
+	
 	
 	public static void drawTree (Graphics g)
 	{
-		Color turquoise = new Color(64, 224, 208);
-		g.setColor(turquoise);
-		Polygon wave1;
-		wave1 = new Polygon();
-		wave1.addPoint(0, 20);
-		wave1.addPoint(30, 260);
-		wave1.addPoint(40, 275);
-		wave1.addPoint(50, 279);
-		wave1.addPoint(60, 300);
-		g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+		//Color turquoise = new Color(64, 224, 208);
+		//g.setColor(turquoise);
+		//Polygon wave1;
+		//wave1 = new Polygon();
+		//wave1.addPoint(0, 20);
+		//wave1.addPoint(30, 260);
+		//wave1.addPoint(40, 275);
+		//wave1.addPoint(50, 279);
+		//wave1.addPoint(60, 300);
+		//g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
 	}
 }
