@@ -79,14 +79,22 @@ public void init ()
 		road.addPoint(400, 400);
 		road.addPoint(100, 400);
 		g.fillPolygon(road);
+		g.setColor(Color.white);
+        Polygon stripes;
+        stripes = new Polygon();
+        stripes.addPoint(248, 200);
+        stripes.addPoint(252, 200);
+        stripes.addPoint(265, 400);
+        stripes.addPoint(235, 400);
+        g.fillPolygon(stripes);
 
 	}
 	
-	
+
 	public static void drawSun(Graphics g)
 	{
 		g.setColor(Color.yellow);
-		g.fillOval(200, 150, 100, 100);
+		g.fillOval(200, 155, 100, 100);
 		// Color turquoise = new Color(64, 224, 208);
 
 		//Polygon wave1;
@@ -119,15 +127,7 @@ public void init ()
 	
 	public static void drawTree (Graphics g)
 	{
-		//Color turquoise = new Color(64, 224, 208);
-		//g.setColor(turquoise);
-		//Polygon wave1;
-		//wave1 = new Polygon();
-		//wave1.addPoint(0, 20);
-		//wave1.addPoint(30, 260);
-		//wave1.addPoint(40, 275);
-		//wave1.addPoint(50, 279);
-		//wave1.addPoint(60, 300);
-		//g.fillPolygon (wave1.xpoints, wave1.ypoints, 5);
+		g.setColor(new Color(106, 65, 50));
+
 	}
 }
