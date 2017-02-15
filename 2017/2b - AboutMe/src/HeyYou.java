@@ -10,5 +10,4 @@ public class HeyYou {
 		else { System.out.print("Hello, " + userName + "."); }
 		userInput.close(); // Close scanner to save resources
 	}
-
 }
