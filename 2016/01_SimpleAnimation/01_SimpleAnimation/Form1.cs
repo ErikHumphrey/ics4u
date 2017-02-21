@@ -1,4 +1,19 @@
-﻿using System;
+﻿/*
+  _____ _                 _         ___        _                 _   _             
+/  ___(_)               | |       / _ \      (_)               | | (_)            
+\ `--. _ _ __ ___  _ __ | | ___  / /_\ \_ __  _ _ __ ___   __ _| |_ _  ___  _ __  
+ `--. \ | '_ ` _ \| '_ \| |/ _ \ |  _  | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \ 
+/\__/ / | | | | | | |_) | |  __/ | | | | | | | | | | | | | (_| | |_| | (_) | | | |
+\____/|_|_| |_| |_| .__/|_|\___| \_| |_/_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|
+                  | |                                                             
+                  |_|                                                             */
+
+/* Project 01: Simple Animation
+ * By Erik Humphrey
+ * Completed February 21st 2017
+ * Animates the ascent and reasecent of a helicopter using 2D graphics*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +51,7 @@ namespace _01_SimpleAnimation
 
         private void btnStartStop_Click(object sender, EventArgs e)
         {
+            myGraphics.Clear(Color.White);
             tmrHover.Enabled = !(tmrHover.Enabled);
             imageY = 0;
             imageDir = 1;
