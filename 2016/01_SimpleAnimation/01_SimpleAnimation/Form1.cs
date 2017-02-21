@@ -11,7 +11,7 @@
 /* Project 01: Simple Animation
  * By Erik Humphrey
  * Completed February 21st 2017
- * Animates the ascent and reasecent of a helicopter using 2D graphics*/
+ * Animates the ascent and reasecent of a helicopter using 2D graphics. The user can choose when to start or stop the animation. */
 
 using System;
 using System.Collections.Generic;
