@@ -23,10 +23,11 @@ public class TicTacToe {
 	
 	public static class Game{
 		public static int boardState = 0;
+		public static int board[][] = {(1, 2), (3, 3)};
 		public static String expendedMoves;
 	} 
 	
-	public static enum Tile { EMPTY, X, O }
+	public static enum Mark { EMPTY, X, O }
 	
 	public static void playerTurn() {
 		String playerMove;
