@@ -6,13 +6,64 @@
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+import java.io.*;
 
 public class GuessTheNumber {
 
+    static int guess;
 
-	public static void main(String[] args) {
-        System.out.println(ThreadLocalRandom.current().nextInt(2, 4 + 1));
+    static int secretNumber = ThreadLocalRandom.current().nextInt(1, 20 + 1);
+    static Scanner userInput = new Scanner(System.in);
 
-	}
+    public static void main(String[] args) throws {
 
+        printHighScoreTable();
+        System.out.print("I'm thinking of a number from 1 to 20. ");
+        guessTime();
+
+
+    }
+
+    private static void guessTime() {
+        System.out.print("Your guess: ");
+
+        guess = userInput.nextInt();
+
+        if (guess == secretNumber) {
+            System.out.println("A winner is you!");
+
+            System.out.println("New high score! Please enter your first name.");
+            Writer highScoreAuthor = null;
+            File highScores = new File("HighScores.txt");
+            try {
+                highScoreAuthor = new BufferedWriter(new FileWriter(highScores));
+            }
+            catch (IOException e) {
+                System.out.println("High score could not be saved.");
+            }
+        }
+        else if (guess > secretNumber) {
+            System.out.println("Try a lower number.");
+            guessTime(); }
+        else if (guess < secretNumber) {
+            System.out.println("Try a higher number.");
+            guessTime(); }
+    }
+
+    private static void printHighScoreTable() {
+        System.out.format("%-10s %8s\n", "NAME", "GUESSES");
+        System.out.format("%-10s %8s\n", "Erik", "5");
+        System.out.format("%-10s %8s\n", "Jeremy", "11");
+        System.out.format("%-10s %8s\n", "Shannon", "14");
+        System.out.format("%-10s %8s\n", "Cameron", "16");
+        System.out.format("%-10s %8s\n", "Shaun", "20");
+    }
+
+    private static void promptNewGame() {
+        System.out.println("Would you like to play again?");
+        if (userInput.next().equalsIgnoreCase("y"))
+        {
+
+        }
+    }
 }
