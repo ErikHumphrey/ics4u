@@ -11,36 +11,56 @@ import java.io.*;
 public class GuessTheNumber {
 
     static int guess;
+    static int guessCount;
 
+    private static File highScores = new File("HighScores.txt");
     static int secretNumber = ThreadLocalRandom.current().nextInt(1, 20 + 1);
     static Scanner userInput = new Scanner(System.in);
 
-    public static void main(String[] args) throws {
+    public static void main(String[] args) throws IOException {
+        // Writes column headers to blank high score table
+        // Readers and writers MUST be declared in separate statements
+        // TODO: Test all possible combinations with this setup
+        if (!highScores.exists()) {
+            highScores.createNewFile();
+            Writer highScoreAuthor = new FileWriter(highScores);
+            highScoreAuthor.write(String.format("%-10s %8s\n", "NAME", "GUESSES"));
+            highScoreAuthor.close();
+        }
+        else
+        {
+            BufferedReader br = new BufferedReader(new FileReader(highScores));
+            if (br.readLine() == null) {
+                Writer highScoreAuthor = new FileWriter(highScores);
+                highScoreAuthor.write(String.format("%-10s %8s\n", "NAME", "GUESSES"));
+                highScoreAuthor.close();
+            }
+        }
 
-        printHighScoreTable();
-        System.out.print("I'm thinking of a number from 1 to 20. ");
         guessTime();
-
-
+        System.out.print("I'm thinking of a number from 1 to 20. ");
     }
 
     private static void guessTime() {
         System.out.print("Your guess: ");
-
         guess = userInput.nextInt();
+        guessCount++;
 
         if (guess == secretNumber) {
+
             System.out.println("A winner is you!");
 
             System.out.println("New high score! Please enter your first name.");
-            Writer highScoreAuthor = null;
-            File highScores = new File("HighScores.txt");
             try {
-                highScoreAuthor = new BufferedWriter(new FileWriter(highScores));
+                Writer highScoreAuthor = new FileWriter(highScores);
+                highScoreAuthor.write(String.format("%-10s %8s\n", userInput.next(), guessCount));
+                highScoreAuthor.flush();
             }
             catch (IOException e) {
                 System.out.println("High score could not be saved.");
             }
+
+
         }
         else if (guess > secretNumber) {
             System.out.println("Try a lower number.");
@@ -60,10 +80,15 @@ public class GuessTheNumber {
     }
 
     private static void promptNewGame() {
-        System.out.println("Would you like to play again?");
+        System.out.println("Would you like to play again? Y/N");
         if (userInput.next().equalsIgnoreCase("y"))
         {
 
+        }
+        else if (userInput.next().equalsIgnoreCase("n"))
+        {
+            System.out.println("Hey");
+            userInput.close();
         }
     }
 }
