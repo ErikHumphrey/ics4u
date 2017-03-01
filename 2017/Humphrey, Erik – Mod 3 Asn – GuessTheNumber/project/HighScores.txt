@@ -1,8 +1,7 @@
 NAME        GUESSES
 
-Erik              4
-Erik              4
-Erik             10
-Erik             10
-Erik              3
-Erik              3
+Erik              5
+Erik              6
+Erik              7
+Erik              8
+Erik              9
