@@ -6,16 +6,12 @@
 
 /* TODO
  * Prevent non-integer guesses (or guesses that aren't within the range)
- * Limit high score list to 10
  * Write pseudocode
  * Implement overloading
- * Implement parameters and return
  * Document methods  
  * Check for bugs
  * Figure out how to write a method in pseudocode
- * Is it possible for the number to be 0? 1? 20? (19 is confirmed)
  * Beautify code
- * Remove debug messages
  * Submit pseudocode in G Suite
  * Submit project to dropbox after removing this list
  */
@@ -37,7 +33,6 @@ public class GuessTheNumber {
     public static void main(String[] args) throws IOException {
         // Writes column headers to blank high score table
         // Readers and writers MUST be declared in separate statements
-        // TODO: Test all possible combinations with this setup
         if (!highScores.exists()) {
             highScores.createNewFile();
             newHighScoreFile();
@@ -54,6 +49,8 @@ public class GuessTheNumber {
         guessTime();
         System.out.print("I'm thinking of a number from 1 to 20. ");
     }
+    // Create a new file with a formatted table 
+    // The program only records the top score, but the original intention was to have a formatted table using arrays or something
     static void newHighScoreFile() throws IOException {
         BufferedWriter highScoreAuthor = new BufferedWriter(new FileWriter (highScores));
         highScoreAuthor.write(String.format("%-10s %8s\n", "NAME", "GUESSES"));
@@ -73,51 +70,43 @@ public class GuessTheNumber {
                 scoreChecker.readLine();
                 scoreChecker.readLine();
                 String entry = scoreChecker.readLine();
-                System.out.println("Entry reads: " + entry);
-                // scoreChecker.readLine(); // Skip one line, which should be the header line
-                // String entry = scoreChecker.readLine();
-                System.out.println(entry);
-                Boolean isHighScore = false;
                 
-                System.out.println("Should be true: " + !isHighScore);
-                System.out.println("Should be true: " + !entry.isEmpty() + " (Entry line reads: " + entry);
-                System.out.println("Should be true: " + (!isHighScore && !entry.isEmpty()));
-                while (!isHighScore && !entry.isEmpty()) {
-                	System.out.println("1");
+                while (!entry.isEmpty()) {
                     try {
-                    	System.out.println("2");
-                        // System.out.println("New high score! Please enter your first name.");
-                        // Use a regular expression to find integers/digit characters (\d) of one or more (+)
                         try {
-                        	System.out.println("3");
                             Matcher regex = Pattern.compile("\\d+").matcher(entry);
                             regex.find();
-                        	System.out.println("DEBUG: Passed the second regex!!!");
-                        	System.out.println(regex);
-                        	System.out.println(entry);
-                        	System.out.println("It took " + guessCount + " guesses. The high score is " + Integer.valueOf(regex.group()) + "." + (guessCount < Integer.valueOf(regex.group())));
-                            if (guessCount < Integer.valueOf(regex.group())) {
-                            	System.out.println("DEBUG: Entered the if statement.");
-                                // TODO: Repeat check up to 10 high scores instead of just checking the highest one
-                            	// maybe use an array for the highscores you maniac
+                            int currentHighScore = Integer.valueOf(regex.group());
+                        	
+                            // Call a method that checks if the user got it on the first try (for the sake of including overloading)
+                            
+                        	if (checkScore(guessCount))
+                        		System.out.println("Wow! You got it on the first guess!");
+                        	else
+                        		System.out.println("It took " + guessCount + " guesses. The high score is " + currentHighScore + ".");
+                        	
+                        	// Call a method with different parameters to check the high score
+                        	
+                            if (checkScore(guessCount, currentHighScore)) {
                                 System.out.println("New high score! Please enter your first name.");
                                 writeHighScore();
-                                isHighScore = true;
                             }
-                        	System.out.println("DEBUG: Passed the if statement");
+                            
+                            scoreChecker.close();
                         }
                         // If there are no scores found, write a high score entry.
-                        catch (IllegalStateException noMatchFound) { System.out.println("No match found??");writeHighScore(); }
+                        catch (IllegalStateException noMatchFound) { writeHighScore(); }
 
                     }
-                    catch (NumberFormatException e){
-                        System.out.println("ERROR: High score could not be saved??");}
+                    catch (NumberFormatException noWriteAccess){
+                        System.out.println("ERROR: High score could not be saved?");} // Rare case of no write access
                     entry = scoreChecker.readLine();
                 }
                 scoreChecker.close();
             }
             catch (IOException noReadAccess) {
-                System.out.println("ERROR: Could not read high score file.");
+                System.out.println(""); // Program might work anyway, but this error implies it is open in another program
+                // Might trigger if high score is not broken for some reason
             }
 
             promptNewGame();
@@ -131,32 +120,45 @@ public class GuessTheNumber {
             guessTime(); }
     }
 
+    /**
+     * Returns whether or not the high score was beaten
+     *
+     * pre: 
+     * post: 
+     */
+    
+    public static Boolean checkScore(int userScore, int highScore) {
+    	Boolean isHighScore = false;
+    	if (userScore < highScore) // A lower score is better in this game (least number of guesses)
+    		isHighScore = true;
+    	return isHighScore;
+    }
+    
+    public static Boolean checkScore(int userScore) {
+    	Boolean isLucky = false;
+    	if (userScore == 1)
+    		isLucky = true;
+    	return isLucky;
+    }
+    
     private static void writeHighScore() {
         try {
             // The true boolean in the constructor opens file in append mode so it doesn't start fresh with each write
             BufferedWriter highScoreAuthor = new BufferedWriter(new FileWriter(highScores, true));
             highScoreAuthor.newLine();
-            highScoreAuthor.write(String.format("%-10s %8s", userInput.next(), guessCount));
-            // highScoreAuthor.flush();
+            highScoreAuthor.write(String.format("%-10s %8s", userInput.next(), guessCount));;
             highScoreAuthor.close();
         } catch (IOException noWriteAccess) {
             System.out.println("ERROR: High score could not be saved.");
         }
-    }
-    private static void printHighScoreTable() {
-        System.out.format("%-10s %8s\n", "NAME", "GUESSES");
-        System.out.format("%-10s %8s\n", "Erik", "5");
-        System.out.format("%-10s %8s\n", "Jeremy", "11");
-        System.out.format("%-10s %8s\n", "Shannon", "14");
-        System.out.format("%-10s %8s\n", "Cameron", "16");
-        System.out.format("%-10s %8s\n", "Shaun", "20");
     }
 
     private static void promptNewGame() {
         System.out.println("Would you like to play again? Y/N");
         if (userInput.next().equalsIgnoreCase("y"))
         {
-
+        	guessTime();
+            System.out.print("I'm thinking of a number from 1 to 20. ");
         }
         else if (userInput.next().equalsIgnoreCase("n"))
         {
