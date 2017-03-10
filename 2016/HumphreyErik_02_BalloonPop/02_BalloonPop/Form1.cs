@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Erik Humphrey
+// Gr. 12 C# Project 02: Balloon Pop
+// Game where player controls a pin that pops balloons cascading down the screen
+// Submitted March 9th, 2017
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -193,7 +198,7 @@ namespace _02_BalloonPop
             }
         }
 
-        // Increase difficulty by increasing form height
+        // Increase difficulty by decreasing form height
         private void tkbDifficulty_ValueChanged(object sender, EventArgs e)
         {
             this.Height = 541 - tkbDifficulty.Value * 18;

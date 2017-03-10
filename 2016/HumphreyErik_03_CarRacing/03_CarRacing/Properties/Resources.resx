@@ -121,4 +121,31 @@
   <data name="CarRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CarRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CarBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarGreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarGrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarGrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarLime" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarLime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarPink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarPurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarPurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarTurquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarTurquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

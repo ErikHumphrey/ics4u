@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,6 +85,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CarRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarGrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarLime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarOrange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarPink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarPurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarTurquoise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

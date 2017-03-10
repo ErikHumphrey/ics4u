@@ -43,9 +43,11 @@ public class GuessTheNumber {
         System.out.print("I'm thinking of a number from 1 to 20. ");
     }
     
-    /* Create a new file with a formatted table
+    /**
+     *  Create a new file with a formatted table
      * pre: none
-     * post: HighScores.txt file created with formatted header in first line */
+     * post: HighScores.txt file created with formatted header in first line
+     */
 
     // The program only records the top score, but the original intention was to have a formatted table using arrays or something
     static void newHighScoreFile() throws IOException {
@@ -54,9 +56,11 @@ public class GuessTheNumber {
         highScoreAuthor.close();
     }
     
-    /* Prompt user to guess secret number
+    /**
+     * Prompt user to guess secret number
      * pre: none
-     * post: Message is displayed showing user score and high score, scores are compared, program is terminated */
+     * post: Message is displayed showing user score and high score, scores are compared, program is terminated
+     * */
     
     private static void guessTime() {
         System.out.print("Your guess: ");
@@ -135,9 +139,11 @@ public class GuessTheNumber {
             guessTime(); }
     }
 
-    /* Check if user score is less than high score
+    /**
+     * Check if user score is less than high score
      * pre: none
-     * post: Returned boolean to method */
+     * post: Returned boolean to method
+     */
     
     public static Boolean checkScore(int userScore, int highScore) {
     	Boolean isHighScore = false;
@@ -146,9 +152,11 @@ public class GuessTheNumber {
     	return isHighScore;
     }
     
-    /* Check if user score equal to 1
+    /**
+     * Check if user score equal to 1
      * pre: none
-     * post: Returned boolean to method */
+     * post: Returned boolean to method
+     */
     
     public static Boolean checkScore(int userScore) {
     	Boolean isLucky = false;
@@ -157,9 +165,11 @@ public class GuessTheNumber {
     	return isLucky;
     }
     
-    /* Write high score to file
+    /**
+     * Write high score to file
      * pre: none
-     * post: Formatted user name input and score outputted to file */
+     * post: Formatted user name input and score outputted to file
+     */
     
     private static void writeHighScore() {
         try {
@@ -174,9 +184,11 @@ public class GuessTheNumber {
     }
 }
 
-    /* Prompt user if they would like to start a new game
+    /**
+     * Prompt user if they would like to start a new game
      * pre: none
-     * post: New game started with new values or program stopped */
+     * post: New game started with new values or program stopped
+     */
     
     // This broke somewhere down the line and stopped generating new numbers or resetting the guess count, so I just removed it.
     // Line 108 and 109 have a similar function to saying "no"

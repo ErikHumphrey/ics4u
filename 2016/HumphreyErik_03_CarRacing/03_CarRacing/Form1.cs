@@ -1,4 +1,9 @@
-﻿using System;
+﻿// By Erik Humphrey
+// Project 03: Car Race
+// Simulate picking a car and watching it compete in a race
+// Completed March 9th, 2017
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +33,8 @@ namespace _03_CarRacing
         int winner;
         Random myRandom = new Random();
 
+        Image[] picCars = new Image[10];
+
         public frmCarRace()
         {
             InitializeComponent();
@@ -35,6 +42,17 @@ namespace _03_CarRacing
 
         private void frmCarRace_Load(object sender, EventArgs e)
         {
+            picCars[0] = Properties.Resources.CarRed;
+            picCars[1] = Properties.Resources.CarBlue;
+            picCars[2] = Properties.Resources.CarGreen;
+            picCars[3] = Properties.Resources.CarOrange;
+            picCars[4] = Properties.Resources.CarPurple;
+            picCars[5] = Properties.Resources.CarPink;
+            picCars[6] = Properties.Resources.CarYellow;
+            picCars[7] = Properties.Resources.CarTurquoise;
+            picCars[8] = Properties.Resources.CarGrey;
+            picCars[9] = Properties.Resources.CarLime;
+
             numberOfCars = 3;
             gameStatus = "Initial";
             gamePanel = pnlGame.CreateGraphics();
@@ -48,7 +66,7 @@ namespace _03_CarRacing
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            {
+            {   // Only allow using the exit button if a race is not in progress
                 if (gameStatus == "Initial")
                 this.Close();
             }
@@ -84,7 +102,7 @@ namespace _03_CarRacing
                 // Draw cars
                 for (int i = 0; i < numberOfCars; i++)
                 {
-                    gamePanel.DrawImage(picCar.Image, 50, i * 60 + 10, 70, 20);
+                    gamePanel.DrawImage(picCars[i], 50, i * 60 + 10, 70, 20);
                     gamePanel.DrawLine(Pens.Black, 50, i * 60 + 30, 820, i * 60 + 30);
                 }
                 // Draw finish line
@@ -147,11 +165,14 @@ namespace _03_CarRacing
             {
                 gamePanel.FillRectangle(Brushes.White, carPosition[i], i * 60 + 10, 70, 20);
                 carPosition[i] += (finalPosition[i] - 50) / 50;
-                gamePanel.DrawImage(picCar.Image, carPosition[i], i * 60 + 10, 70, 20);
+                gamePanel.DrawImage(picCars[i], carPosition[i], i * 60 + 10, 70, 20);
             }
             if (numberMoves == 49)
             {
                 tmrCar.Stop();
+                MessageBox.Show("Car #" + (winner + 1) + " wins the race!", "Race over"); // Announce winner (first car is 0, so add 1)
+                if (carPicked[winner] == 1)
+                    MessageBox.Show("Your pick won! You win a large sum of money.", "Congratulations!");
                 gameStatus = "Initial";
             }
         }
