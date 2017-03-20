@@ -80,7 +80,7 @@ public class Circle {
 
     public String toString() {
         String circleString;
-        circleString = "Circle has radius: " + radius;
+        circleString = "Circle radius: " + radius;
         return (circleString);
     }
 }

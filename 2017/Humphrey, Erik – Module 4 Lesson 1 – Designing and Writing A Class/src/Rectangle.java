@@ -47,4 +47,31 @@ public class Rectangle {
         System.out.println("The formula for the area of a rectangle is a = l*w.");
     }
 
+    /**
+     * Determines if the object is equal to another Rectangle object.
+     * pre: r is a Rectangle object
+     * post: true has been returned if the objects have
+     * the same areas. False has been returned otherwise
+     */
+
+    public boolean equals(Object r) {
+        Rectangle testObj = (Rectangle)r;
+        if (testObj.getArea() == area) {
+            return (true);
+        } else {
+            return (false);
+        }
+    }
+
+    /**
+     * Returns a String that represents the Circle object.
+     * pre: none
+     * post: A String representing the Circle object has been returned.
+     */
+
+    public String toString() {
+        String rectangleString;
+        rectangleString = "Rectangle area: " + area;
+        return (rectangleString);
+    }
 }
