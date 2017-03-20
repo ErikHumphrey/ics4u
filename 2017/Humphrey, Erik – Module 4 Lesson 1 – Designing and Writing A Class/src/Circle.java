@@ -1,16 +1,6 @@
 public class Circle {
     private static final double PI = 3.14;
     private double radius;
-
-    /**
-     * constructor
-     * pre: none
-     * post: A Circle object created. Radius initialized to 1.
-     */
-
-  //  public Circle() {
-  //      radius = 1; //default radius
-  //  }
     
     /**
      * constructor
@@ -22,15 +12,6 @@ public class Circle {
         radius = r;
     }
 
-    /**
-     * Calculates the radius of the circle
-     * pre: none
-     * post: Radius has been changed
-     */
-
-    public void setRadius(double newRadius) {
-        radius = newRadius;
-    }
     /**
      * Calculates the area of the circle.
      * pre: none
@@ -52,14 +33,20 @@ public class Circle {
     public double getRadius() {
         return (radius);
     }
+    
+    /**
+     * Returns the circumference of the circle
+     * pre: none
+     * post: The circumference of the circle has been returned
+     */
+    
     public double circumference(double radius) {
         double circumference = 2 * (PI) * radius;
         return (circumference);
     }
 
-    /*
-     * Displays the formula for the area of a
-     * circle
+    /**
+     * Displays the formula for the area of a circle
      * pre: none
      * post: The formula for area of a circle
      * has been displayed
