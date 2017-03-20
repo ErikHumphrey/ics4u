@@ -14,7 +14,11 @@ public class TestCircle {
         System.out.println("Circle area: " + spotB.area());
         System.out.printf("Circle circumference: %.1f\n\n", spotB.circumference(spotB.getRadius()));
         
-        System.out.println("Circle A's radius is equal to that of Circle B: " + spotA.equals(spotB));
-        System.out.println("Circle A's radius is equal to that of another circle with radius of 5: " + spotA.equals(new Circle(5)));
+        System.out.println(
+        		"Circle A's radius is equal to that of Circle B: "
+                + spotA.equals(spotB));
+        System.out.println(
+        		"Circle A's radius is equal to that of another circle with radius of 5: "
+        		+ spotA.equals(new Circle(5)));
     }
 }
