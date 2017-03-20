@@ -1,11 +1,7 @@
 public class TestCoin {
-public static void main(String[] args) {
-Coin nickel = new Coin();
-nickel.flipCoin();
-if (nickel.showFace() == 0) {
-System.out.println("Heads up!");
-} else {
-System.out.println("Tails up!");
-}
-}
+    public static void main(String[] args) {
+        Coin nickel = new Coin();
+        nickel.flipCoin();
+        System.out.println(nickel.toString());
+    }
 }
