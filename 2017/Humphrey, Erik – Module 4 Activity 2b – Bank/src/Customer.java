@@ -31,4 +31,20 @@ public class Customer {
         custString += city + ", " + state + " " + zip + "\n";
         return (custString);
     }
+    
+    public String changeStreet(){
+    	return ("aaa");
+    }
+    
+    public String changeCity(){
+    	return ("aaa");
+    }
+    
+    public String changeState(){
+    	return ("aaa");
+    }
+    
+    public String changeZip(){
+    	return ("aaa");
+    }
 }

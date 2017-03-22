@@ -2,6 +2,7 @@ import java.text.NumberFormat;
 
 public class Account {
     private double balance;
+    private String name;
     private Customer cust;
 
     /**
@@ -11,6 +12,7 @@ public class Account {
      */
     public Account(double bal, String fName, String lName, String str, String city, String st, String zip) {
         balance = bal;
+        name = fName;
         cust = new Customer(fName, lName, str, city, st, zip);
     }
 
@@ -21,6 +23,15 @@ public class Account {
      */
     public double getBalance() {
         return (balance);
+    }
+    
+    /**
+     * Returns the customer's first name
+     * pre: none
+     * post: The customer's first name has been returned.
+     */
+    public String getName() {
+        return (name);
     }
 
     /**
