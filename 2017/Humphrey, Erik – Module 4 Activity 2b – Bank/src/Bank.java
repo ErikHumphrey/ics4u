@@ -1,5 +1,4 @@
 import java.text.NumberFormat;
-
 import java.util.Scanner;
 import org.apache.commons.lang.math.IntRange;
 import org.apache.commons.lang3.StringUtils;
@@ -89,7 +88,7 @@ public class Bank {
                 System.out.print("Enter deposit amount: ");
                 amount = input.nextDouble();
                 munozAccount.deposit(amount);
-                System.out.println("Balance is now" + money.format(munozAccount.getBalance()) + ".");
+                System.out.println("Balance is now " + money.format(munozAccount.getBalance()) + ".");
                 break;
             case 3:
                 System.out.print("Enter withdrawal amount: ");
@@ -146,7 +145,7 @@ public class Bank {
 
         switch (selection) {
             case 1:
-                System.out.println("\nThanks for banking with WithdrawalSymptoms, the modern American banking software.");
+                System.out.println("Thanks for banking with WithdrawalSymptoms, the modern American banking software.");
                 input.close();
                 break;
             case 2:

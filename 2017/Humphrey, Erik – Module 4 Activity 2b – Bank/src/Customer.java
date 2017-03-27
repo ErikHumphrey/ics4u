@@ -22,7 +22,7 @@ public class Customer {
      * pre: none
      * post: A string representing the Account object has been returned.
      */
-    
+
     public String toString() {
         String custString;
 
@@ -31,44 +31,44 @@ public class Customer {
         custString += city + ", " + state + " " + zip + "\n";
         return (custString);
     }
-    
+
     /**
      * Changes customer street
      * pre: none
      * post: Account address information has been changed
      */
-    
-    public void changeStreet(String str){
-    	street = str;
+
+    public void changeStreet(String str) {
+        street = str;
     }
-    
+
     /**
      * Changes customer city
      * pre: none
      * post: Account address information has been changed
      */
-    
-    public void changeCity(String c){
-    	city = c;
+
+    public void changeCity(String c) {
+        city = c;
     }
-    
+
     /**
      * Changes customer state
      * pre: none
      * post: Account address information has been changed
      */
-    
-    public void changeState(String s){
-    	state = s;
+
+    public void changeState(String s) {
+        state = s;
     }
-    
+
     /**
      * Changes customer ZIP
      * pre: none
      * post: Account address information has been changed
      */
-    
-    public void changeZip(String z){
-    	zip = z;
+
+    public void changeZip(String z) {
+        zip = z;
     }
 }
