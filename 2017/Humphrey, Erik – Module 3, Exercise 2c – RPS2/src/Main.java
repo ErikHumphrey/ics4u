@@ -25,7 +25,6 @@ public class Main {
          * Usually in rock–paper–scissors, a draw (e.g. ROCK-ROCK) would simply repeat the round instead
          * This way, I can apply the same tiebreaker system to other games (e.g. hockey) in the future. 
          */
-
         match:
             do {
                 for (int i = 0; i < rounds; i++) {
