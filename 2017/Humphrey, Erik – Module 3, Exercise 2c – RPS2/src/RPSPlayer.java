@@ -1,20 +1,23 @@
 /**
- * models the player in a game of RPS
+ * Models the player in a game of rock–paper–scissors
+ * @Author Erik Humphrey
+ * @Since 1.0
  */
 public class RPSPlayer {
-	
-	private String userName;
-	
-    private int playerThrow;
-    //ROCK = 1, PAPER = 2, SCISSORS = 3
+
+    private String userName;
+
+    private int playerThrow; //ROCK = 1, PAPER = 2, SCISSORS = 3
+
     /**
      * constructor
      * pre: none
      * post: RPSPlayer object created. The player is given a default throw.
      */
     public RPSPlayer() {
-        playerThrow = 1; //default throw
+        playerThrow = 1; // Default throw
     }
+
     /**
      * Sets the player's throw.
      * pre: newThrow is the integer 1, 2, or 3.
@@ -23,6 +26,7 @@ public class RPSPlayer {
     public void makeThrow(int newThrow) {
         playerThrow = newThrow;
     }
+
     /**
      * Returns the player's throw.
      * pre: none
@@ -31,12 +35,22 @@ public class RPSPlayer {
     public int getThrow() {
         return (playerThrow);
     }
-    
+
+    /**
+     * Sets the player's name.
+     * pre: none
+     * post: Player's throw has been returned.
+     */
     public void setName(String name) {
-    	userName = name;
+        userName = name;
     }
-    
+
+    /**
+     * Returns the player's name.
+     * pre: none
+     * post: Player's throw has been returned.
+     */
     public String getName() {
-    	return(userName);
+        return (userName);
     }
 }

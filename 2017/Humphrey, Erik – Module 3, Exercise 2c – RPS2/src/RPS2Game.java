@@ -1,30 +1,35 @@
 /**
- * Models a game of RPS
+ * Models a game of rock–paper–scissors
+ * @Author Erik Humphrey
+ * @Since 1.0
  */
 import java.lang.Math;
+
 public class RPS2Game {
     public static final int ROCK = 1, PAPER = 2, SCISSORS = 3;
     private int compThrow;
-    private int playerWins = 0, computerWins = 0, gameRounds;
-    
+    private int playerWins = 0, computerWins = 0;
+
     /**
      * constructor
      * pre: none
      * post: RPSGame object created. Computer throw generated.
      */
     public RPS2Game() {
-        compThrow = (int)(3 * Math.random() + 1); //1, 2, or 3
+        compThrow = (int)(3 * Math.random() + 1); // 1, 2, or 3
         playerWins = 0;
         computerWins = 0;
     }
+
     /**
      * Computer's throw is generated (ROCK, PAPER, or SCISSORS)
      * pre: none
      * post: Computer's throw has been made.
      */
     public void makeCompThrow() {
-        compThrow = (int)(3 * Math.random() + 1); //1, 2, or 3
+        compThrow = (int)(3 * Math.random() + 1); // 1, 2, or 3
     }
+
     /**
      * Returns the computer's throw.
      * pre: none
@@ -33,15 +38,14 @@ public class RPS2Game {
     public int getCompThrow() {
         return (compThrow);
     }
+
     /**
      * Determines the winner of the round.
      * pre: playerThrow is the integer 1, 2, or 3.
-     * post: Displays a message indicating throws. Compares player's
-     * throw to computer's throw and displays a message indicating
-     * the winner.
+     * post: Displays a message indicating throws. Compares player's throw to computer's throw and displays a message indicating the winner.
      */
     public void announceWinner(int playerThrow, String player) {
-    	
+
         /* Inform player of throws */
         System.out.print(player + " throws ");
         switch (playerThrow) {
@@ -67,6 +71,7 @@ public class RPS2Game {
                 System.out.println("SCISSORS.");
                 break;
         }
+        
         /* Determine and annouce winner */
         if (playerThrow == ROCK && compThrow == ROCK) {
             System.out.println("It's a draw!");
@@ -95,23 +100,21 @@ public class RPS2Game {
         } else if (playerThrow == SCISSORS && compThrow == SCISSORS) {
             System.out.println("It's a draw!");
         }
-        
-        System.out.printf("%S %d %14S %d", player, playerWins, "computer", computerWins); //
+
+        System.out.printf("\n%S %d %14S %d\n", player, playerWins, "computer", computerWins); // A capital S converts the string to uppercase
     }
+
     /**
      * Displays the overall winner.
      * pre: none
-     * post: Computer and player wins compared and
-     * an overall winner announced.
+     * post: Computer and player wins compared and an overall winner announced.
      */
     public String bigWinner(String player) {
-        if (computerWins > playerWins) {
+        if (computerWins > playerWins)
             return ("\nComputer wins the series!");
-        } else if (playerWins > computerWins) {
-            return (player + " wins the series!");
-        } else {
-        	System.out.println("The series ends in a draw!\nTIEBREAKER START!!");
+        else if (playerWins > computerWins)
+            return ("\n" + player + " wins the series!");
+        else
             return ("draw");
-        }
     }
 }
