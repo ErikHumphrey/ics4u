@@ -5,7 +5,7 @@
  */
 import java.lang.Math;
 
-public class RPS2Game {
+public class Game {
     public static final int ROCK = 1, PAPER = 2, SCISSORS = 3;
     private int compThrow;
     private int playerWins = 0, computerWins = 0;
@@ -15,7 +15,7 @@ public class RPS2Game {
      * pre: none
      * post: RPSGame object created. Computer throw generated.
      */
-    public RPS2Game() {
+    public Game() {
         compThrow = (int)(3 * Math.random() + 1); // 1, 2, or 3
         playerWins = 0;
         computerWins = 0;

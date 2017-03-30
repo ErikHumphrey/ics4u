@@ -7,15 +7,17 @@
  */
 import java.util.Scanner;
 
-public class RPS2 {
+public class Main {
     public static void main(String[] args) {
-        RPS2Game rps = new RPS2Game();
-        RPSPlayer human = new RPSPlayer();
+        Game rps = new Game();
+        Player human = new Player();
         int rounds, playerThrow;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your name: ");
         human.setName(input.nextLine());
         System.out.print("How many rounds? ");
+        while (!input.hasNextInt())
+            input.next();
         rounds = input.nextInt();
 
         /* The very definition of spaghetti code
@@ -28,6 +30,8 @@ public class RPS2 {
             do {
                 for (int i = 0; i < rounds; i++) {
                     System.out.print("\nEnter your throw (ROCK = 1, PAPER = 2, SCISSORS = 3): ");
+                    while (!input.hasNextInt())
+                        input.next();
                     playerThrow = input.nextInt();
                     human.makeThrow(playerThrow);
                     rps.makeCompThrow();

@@ -3,7 +3,7 @@
  * @Author Erik Humphrey
  * @Since 1.0
  */
-public class RPSPlayer {
+public class Player {
 
     private String userName;
 
@@ -14,7 +14,7 @@ public class RPSPlayer {
      * pre: none
      * post: RPSPlayer object created. The player is given a default throw.
      */
-    public RPSPlayer() {
+    public Player() {
         playerThrow = 1; // Default throw
     }
 
