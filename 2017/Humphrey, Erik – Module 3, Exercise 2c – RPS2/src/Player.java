@@ -12,7 +12,7 @@ public class Player {
     /**
      * constructor
      * pre: none
-     * post: RPSPlayer object created. The player is given a default throw.
+     * post: Player object created. The player is given a default throw.
      */
     public Player() {
         playerThrow = 1; // Default throw
@@ -39,7 +39,7 @@ public class Player {
     /**
      * Sets the player's name.
      * pre: none
-     * post: Player's throw has been returned.
+     * post: Player's name has been changed.
      */
     public void setName(String name) {
         userName = name;
@@ -48,7 +48,7 @@ public class Player {
     /**
      * Returns the player's name.
      * pre: none
-     * post: Player's throw has been returned.
+     * post: Player's name has been returned.
      */
     public String getName() {
         return (userName);

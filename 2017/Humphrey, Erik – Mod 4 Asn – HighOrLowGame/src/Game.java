@@ -1,19 +1,25 @@
-/*
- * TODO: Header information
+/**
+ * Project: Module 4 Assignment: High or Low Game
+ * Author: Erik Humphrey
+ * Description: Dice game in which the player wagers points on random outcomes
+ * Date: April 4, 2017
  */
 import java.util.Scanner;
 /**
- * A HighOrLow game is played.
+ * Client code: A "high or low" game is played.
  */
+
+// TODO: Make something happen when player runs out of points
+// TODO: Add something from each part of the module
 public class Game {
     public static void main(String[] args) {
         final int QUIT = -1;
         final int LOW = 0, HIGH = 1;
-        HLPlayer player = new HLPlayer(); // HLPlayer isn't a good class name, try Player
+        Player player = new Player(); 
         int pointsToRisk, call;
         Scanner input = new Scanner(System.in);
         /* play High or Low game */
-        System.out.println("You have " + player.showPoints() + "points.");
+        System.out.println("You have " + player.getPoints() + "points.");
         System.out.print("How many points do you want to risk? (-1 to quit)");
         pointsToRisk = input.nextInt();
         while (pointsToRisk != QUIT) {
@@ -24,11 +30,12 @@ public class Game {
             } while (call != LOW && call != HIGH);
             player.makeCall(call);
             player.rollDice();
-            System.out.println("You rolled: " + player.showRoll());
-            System.out.println("You now have " + player.showPoints() +
+            System.out.println("You rolled: " + player.getRoll());
+            System.out.println("You now have " + player.getPoints() +
                 " points.");
-            System.out.print("How many points do you want to risk? (-1 to quit) "); // TODO: Set this as a predefined string?
+            System.out.print("How many points do you want to risk? (-1 to quit) ");
             pointsToRisk = input.nextInt();
         }
+        input.close();
     }
 }
