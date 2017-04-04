@@ -19,10 +19,11 @@ public class Game {
         int pointsToRisk, call;
         Scanner input = new Scanner(System.in);
         /* play High or Low game */
-        System.out.println("You have " + player.getPoints() + "points.");
-        System.out.print("How many points do you want to risk? (-1 to quit)");
+        System.out.println("You have " + player.getPoints() + " points.");
+        System.out.print("How many points do you want to risk? (-1 to quit) ");
         pointsToRisk = input.nextInt();
         while (pointsToRisk != QUIT) {
+        	if (pointsToRisk != -400) {
             player.riskPoints(pointsToRisk);
             do {
                 System.out.print("Make a call (0 for low, 1 for high): ");
@@ -33,8 +34,14 @@ public class Game {
             System.out.println("You rolled: " + player.getRoll());
             System.out.println("You now have " + player.getPoints() +
                 " points.");
+
+        	else {
+        		player.rollDice();
+                System.out.println("You rolled: " + player.getRoll(-400));
+        	}
             System.out.print("How many points do you want to risk? (-1 to quit) ");
             pointsToRisk = input.nextInt();
+        	}
         }
         input.close();
     }
