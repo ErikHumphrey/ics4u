@@ -64,7 +64,9 @@ public class Player {
      */
     public void rollDice() {
     	lastRoll = (die1.roll() + die2.roll());
-    	if (lastRoll > 6 &&)
+    	if ((lastRoll > (die1.sides)) && call == 1) {
+    	
+    	}
     }
     
     /**

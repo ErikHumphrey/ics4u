@@ -3,7 +3,8 @@
  */
 public class Die {
 	
-	private int sides, roll;
+	int sides;
+	private int roll;
 	
     /**
      * constructor
@@ -26,7 +27,7 @@ public class Die {
     /**
      * Rolls the die.
      * pre: none
-     * post: A random integer from 1 to the number of sides has been returned.
+     * post: A random integer ranging from 1 to the number of sides has been returned.
      */
     public int roll() {
     	roll = (sides) * (int)Math.random() + 1;
