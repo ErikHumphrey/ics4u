@@ -5,16 +5,29 @@ public class Player {
 
     private String userName;
 
-    private int playerThrow; //ROCK = 1, PAPER = 2, SCISSORS = 3
-    private int points;
+    private int call, points, lastRoll, bet; // Put these in order
+    
+    private Die die1, die2;
+    
 
     /**
      * constructor
      * pre: none
-     * post: Player object created. The player is given a default throw.
+     * post: Player object created. Two die objects are created. 
      */
     public Player() {
-        // playerThrow = 1; // Default throw
+    	die1 = new Die();
+    	die2 = new Die();
+    }
+    
+    /**
+     * constructor
+     * pre: none
+     * post: Player object created. Two dice are initialized with parameters. 
+     */
+    public Player(int s1, int s2) {
+    	die1 = new Die(s1);
+    	die2 = new Die(s2);
     }
 
     /**
@@ -31,21 +44,37 @@ public class Player {
      * pre: none
      * post: Player's roll has been returned.
      */
-    public String getRoll() {
-        return (userName);
+    public int getRoll() {
+        return (lastRoll);
     }
     
-    public void makeCall(int call) {
-    
+    /**
+     * Set the player's call.
+     * pre: none
+     * post: Player's call has been set.
+     */
+    public void makeCall(int prediction) {
+    	call = prediction;
     }
     
+    /**
+     * Rolls both dice.
+     * pre: none
+     * post: The last roll has been set to the sum of the dice rolls.
+     */
     public void rollDice() {
-    	Die die1 = new Die();
-    	Die die2 = new Die();
+    	lastRoll = (die1.roll() + die2.roll());
+    	if (lastRoll > 6 &&)
     }
     
+    /**
+     * Wagers points.
+     * pre: none
+     * post: The player's points have been deducted and their wager has been set.
+     */
     public void riskPoints(int wager)
     {
-    	
+    	points -= wager;
+    	bet = wager;
     }
 }
