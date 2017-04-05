@@ -34,6 +34,7 @@ public class Game {
             System.out.println("You rolled: " + player.getRoll());
             System.out.println("You now have " + player.getPoints() +
                 " points.");
+        	}
 
         	else {
         		player.rollDice();
@@ -42,7 +43,7 @@ public class Game {
             System.out.print("How many points do you want to risk? (-1 to quit) ");
             pointsToRisk = input.nextInt();
         	}
-        }
+
         input.close();
+        }
     }
-}
