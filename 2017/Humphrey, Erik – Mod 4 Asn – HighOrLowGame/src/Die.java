@@ -30,7 +30,7 @@ public class Die {
      * post: A random integer ranging from 1 to the number of sides has been returned.
      */
     public int roll() {
-    	roll = (sides) * (int)Math.random() + 1;
+    	roll = (int)(sides * Math.random() + 1);
     	return (roll);
     }
 }

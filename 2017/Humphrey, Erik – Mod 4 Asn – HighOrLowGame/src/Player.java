@@ -1,21 +1,19 @@
 /**
  * Models the player in a high or low game
  */
+import java.util.Arrays;
 import java.util.stream.IntStream;
+
 import org.apache.commons.lang3.ArrayUtils; // Importing libraries is fun for when writing the code yourself is complex
 
 public class Player {
 
-    private String userName;
-
     private int call, points, lastRoll, wager; // Put these in order
-    
-    int[] rolls1, rolls2 = IntStream.rangeClosed(1, 6).toArray();
+
 	int[] rollsSum = IntStream.rangeClosed(2, 12).toArray();
     
     private Die die1, die2;
     
-
     /**
      * constructor
      * pre: none
@@ -25,8 +23,6 @@ public class Player {
     	points = 1000;
     	die1 = new Die();
     	die2 = new Die();
-    	
-    	
     }
     
     /**
@@ -59,19 +55,29 @@ public class Player {
     }
     
     /**
-     * Returns player's rolls separately.
+     * For debugging. Returns player's rolls separately.
      * pre: none
-     * post: Player's roll has been returned.
+     * post: Printed rolls and sum of rolls. Sum of player's roll removed from the array of unrolled numbers.
      */
     public String getRoll(int debug) {
-    	rolls1 = ArrayUtils.removeElement(rolls1, die1.roll()); // Remove roll from array
+    	int roll1 = die1.roll();
+    	int roll2 = die2.roll();
+    	lastRoll = roll1 + roll2;
+    	rollsSum = ArrayUtils.removeElement(rollsSum, lastRoll);
     	
-    	// Print the arrays 
-    	
-        return ("Rolled " + die1.roll() + " + " + die2.roll() + " = " + lastRoll
-        	+ "\nDie 1 hasn't rolled: "
-    	    + "\nDie 2 hasn't rolled:"
-    	    + "These sums haven't come up: ");
+    	return "Rolled " + roll1 + " + " + roll2 + " = " + lastRoll; // Print the addition operation to get the sum
+    }
+    
+    /**
+     * For debugging. Returns numbers that haven't been rolled with debug wager.
+     * pre: rollsSum != null
+     * post: Array of unrolled numbers has been returned.
+     */
+    public String getMissing() {
+    	if (rollsSum.length > 0)
+    		return ("These sums haven't come up: " + Arrays.toString(rollsSum) + "\n");
+    	else
+    		return ("All possible values have been rolled!\n");
     }
     
     /**
@@ -86,11 +92,10 @@ public class Player {
     /**
      * Rolls both dice.
      * pre: none
-     * post: The last roll has been set to the sum of the dice rolls.
+     * post: The last roll has been set to the sum of the dice rolls. Points increased by double wager if player call correct; else wager is lost.
      */
     public void rollDice() {
     	lastRoll = (die1.roll() + die2.roll());
-    	// if ((lastRoll > (die1.sides)) && call == 1) {
     	if ((lastRoll < 7 && call == 0 || lastRoll > 7 && call == 1))
     		points += (wager << 1);
     	else
