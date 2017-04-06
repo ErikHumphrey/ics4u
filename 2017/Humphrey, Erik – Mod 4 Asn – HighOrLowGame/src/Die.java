@@ -2,10 +2,10 @@
  * Models the dice (or a die) in a high or low game
  */
 public class Die {
-	
-	int sides;
-	private int roll;
-	
+
+    int sides;
+    private int roll;
+
     /**
      * constructor
      * pre: none
@@ -14,7 +14,7 @@ public class Die {
     public Die() {
         sides = 6; // Default number of sides
     }
-    
+
     /**
      * constructor
      * pre: none
@@ -23,14 +23,14 @@ public class Die {
     public Die(int s) {
         sides = s;
     }
-    
+
     /**
      * Rolls the die.
      * pre: none
      * post: A random integer ranging from 1 to the number of sides has been returned.
      */
     public int roll() {
-    	roll = (int)(sides * Math.random() + 1);
-    	return (roll);
+        roll = (int)(sides * Math.random() + 1);
+        return (roll);
     }
 }
