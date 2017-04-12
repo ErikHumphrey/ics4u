@@ -1,20 +1,8 @@
-#### This repository is no longer being added to. Please visit [this website](http://msmcdougall.com/) for up-to-date information.
-But if you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and I will do my best to fix it!
+If you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and I will do my best to fix it!
 
 # ICS4U
 
-ICS4U is a Computer Science course for those pursuing Computer Studies in The Ontario Curriculum. It is targeted at Grade 12 students who have completed ICS3U, Introduction to Computer Science. Course material varies from school to school. These projects were made for a course at [St. Paul High School](https://en.wikipedia.org/wiki/St._Paul_High_School_(Ottawa)) that revolves around C# through the use of Windows Forms in Microsoft Visual Studio.
-
-This repository contains the following:
-
-- Source code for Level 4 work
-- An introductory guide to basic concepts of C# programming with Windows Forms
-- Console applications, applets, and other projects based off Beth Brown's *A Guide to Programming in Java*
-- Instructions and notes for each project
-- Level 3 example projects created by teachers
-- Rubrics for most projects
-- Outlines for written assignments that teach computer ethics
-- Java and Python exercises
+Verified level 4+ / A+ work and examples for advanced placement university preparation high school computer science class.
 
 ### Recommended
 
