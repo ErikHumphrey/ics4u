@@ -28,6 +28,25 @@ namespace SquirrelSnatcher
             InitializeComponent();
         }
 
+        private void frmSquirrelsFromTheSky_Load(object sender, EventArgs e)
+        {
+            holeW = picHole.Width;
+            holeH = picHole.Height;
+            squirrelW = picSquirrel.Width;
+            squirrelH = picSquirrel.Height;
+            handW = picHand.Width;
+            handH = picHand.Height;
+            lblDifficultyLevel.Text = "1";
+            gameStatus = "Initial";
+            gamePanel = pnlGame.CreateGraphics();
+            lblInstructions.Text = "Squirrel Snatcher";
+            lblInstructions.Text += "\r\n\r\nSquirrels are coming out of their holes in the ground to eat your garden!";
+            lblInstructions.Text += "\r\n\r\nIn this game, your objective is to snatch as many squirrels as possible.";
+            lblInstructions.Text += "\r\n\r\nThe arrow keys (8, 2) on the numeric keypad move the glove up and down to catch squirrels.";
+            lblInstructions.Text += "\r\n\r\nYou can also left-click to move the glove down or right-click to move the glove up.";
+            lblInstructions.Text += "\r\n\r\nUse the controls on the left to change the difficulty or start playing!";
+        }
+
         private void frmSquirrelSnatcher_KeyDown(object sender, KeyEventArgs e)
         {
             // Check for up or down numpad arrow key to move the Hand
@@ -67,14 +86,14 @@ namespace SquirrelSnatcher
             {
                 handY -= handDeltaY;
                 RemoveHand();
-                //gamePanel.DrawImage(picHand.Image, 762, handY -= handDeltaY, handW, handH);
+                gamePanel.DrawImage(picHand.Image, 762, handY -= handDeltaY, handW, handH);
                 pnlGame.Refresh();
             }
             else if (handDirection == "Down")
             {
                 handY += handDeltaY;
                 RemoveHand();
-                //gamePanel.DrawImage(picHand.Image, 762, handY += handDeltaY, handW, handH);
+                gamePanel.DrawImage(picHand.Image, 762, handY += handDeltaY, handW, handH);
                 pnlGame.Refresh();
             }
         }
@@ -95,25 +114,6 @@ namespace SquirrelSnatcher
         private void RemoveHand()
         {
             gamePanel.FillRectangle(Brushes.MediumSeaGreen, 762, handY, handW, handH);
-        }
-
-        private void frmSquirrelsFromTheSky_Load(object sender, EventArgs e)
-        {
-            holeW = picHole.Width;
-            holeH = picHole.Height;
-            squirrelW = picSquirrel.Width;
-            squirrelH = picSquirrel.Height;
-            handW = picHand.Width;
-            handH = picHand.Height;
-            lblDifficultyLevel.Text = "1";
-            gameStatus = "Initial";
-            gamePanel = pnlGame.CreateGraphics();
-            lblInstructions.Text = "Squirrel Snatcher";
-            lblInstructions.Text += "\r\n\r\nSquirrels are coming out of their holes in the ground to eat your garden!";
-            lblInstructions.Text += "\r\n\r\nIn this game, your objective is to snatch as many squirrels as possible.";
-            lblInstructions.Text += "\r\n\r\nThe arrow keys (8, 2) on the numeric keypad move the glove up and down to catch squirrels.";
-            lblInstructions.Text += "\r\n\r\nYou can also left-click to move the glove down or right-click to move the glove up.";
-            lblInstructions.Text += "\r\n\r\nUse the controls on the left to change the difficulty or start playing!";
         }
 
         private void btnDifficultyDown_Click(object sender, EventArgs e)
