@@ -1,18 +1,16 @@
-If you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and I will do my best to fix it!
+If you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and I will do my best to fix it!  
+This repository has most projects from 2015–2017 but the curriculum and course content are subject to change.
 
 # ICS4U
 
-Verified level 4+ / A+ work and examples for advanced placement university preparation high school computer science class.
+Verified level 4+ work and examples for advanced placement university preparation high school computer science class in Ontario.
 
 ### Recommended
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/post-download-vs?sku=community&clcid=0x409&downloadrename=true)
 
-- [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
+- [.NET Framework 4.5](https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
 
 - [Eclipse](https://eclipse.org/ide/) or [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-- [Microsoft Word](https://products.office.com/en-ca/word)
-
-- [Google account](https://accounts.google.com/SignUp?continue=https://myaccount.google.com/intro&hl=en_GB)
-
+- [Google Docs](https://www.google.ca/docs/about/) or [Microsoft Word](https://products.office.com/en-ca/word)
