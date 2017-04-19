@@ -11,11 +11,11 @@ public class BackwardsName {
         /* Prompt user for their name: */
         System.out.print("Enter your name: ");
         name = input.nextLine();
-        /* convert word to char array and count letter occurrences */
-        name = word.toUpperCase();
-        wordLetters = word.toCharArray();
-        for (int letter = 0; letter < wordLetters.length; letter++) {
-            offset = wordLetters[letter] - LOW;
+        /* convert name to char array and count letter occurrences */
+        name = name.toUpperCase();
+        nameLetters = name.toCharArray();
+        for (int letter = 0; letter < nameLetters.length; letter++) {
+            offset = nameLetters[letter] - LOW;
             letterCounts[offset] += 1;
         }
         /* show letter occurrences */
@@ -24,9 +24,9 @@ public class BackwardsName {
                 LOW]);
         }
 
-        // aaaa
+        /* 
         for (int i = array.length - 1; i >= 0; i--) {
             System.out.print(char[i]);
-        }
+        } */
     }
 }
