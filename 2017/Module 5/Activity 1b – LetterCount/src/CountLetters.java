@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class CountLetters {
     public static void main(String[] args) {
         final int LOW = 'A'; // Smallest possible value
@@ -10,7 +9,7 @@ public class CountLetters {
         @SuppressWarnings("resource")
         /* Convert phrase to character array and count letter occurrences
          * Replaces characters with a regular expression, removing anything that is not from A-Z */
-        char[] phraseLetters = new Scanner(System.in).nextLine().toUpperCase().replaceAll("[^A-Z]", "").toCharArray();;
+        char[] phraseLetters = new java.util.Scanner(System.in).nextLine().toUpperCase().replaceAll("[^A-Z]", "").toCharArray();
 
         int offset;
         for (int letter = 0; letter < phraseLetters.length; letter++, letterCounts[offset] += 1)
