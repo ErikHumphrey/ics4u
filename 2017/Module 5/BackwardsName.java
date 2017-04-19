@@ -23,5 +23,10 @@ public class BackwardsName {
             System.out.println((char) i + ": " + letterCounts[i -
                 LOW]);
         }
+
+        // aaaa
+        for (int i = array.length - 1; i >= 0; i--) {
+            System.out.print(char[i]);
+        }
     }
 }
