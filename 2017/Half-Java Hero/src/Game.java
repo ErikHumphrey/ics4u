@@ -10,7 +10,7 @@ import javafx.util.Duration;
 
 public class Game extends Application {
 
-    private static final Image IMAGE = new Image("walksequence_spritesheet.png");
+    private static final Image IMAGE = new Image("transparentWalk.png");
 
     private static final int COLUMNS = 6;
     private static final int COUNT = 30;
