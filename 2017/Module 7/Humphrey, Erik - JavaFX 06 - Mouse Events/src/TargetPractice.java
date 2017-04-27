@@ -102,14 +102,14 @@ public class TargetPractice extends Application {
 						String pointsText = "Points: " + points;
 						gc.fillText(pointsText, 360, 36);
 						gc.strokeText(pointsText, 360, 36);
-						System.out.println("Player hit target");
+						System.out.println("Player hit target.");
 					}
 					else { // Miss
 						points = 0;
 						String pointsText = "Points: " + points;
 						gc.fillText(pointsText, 360, 36);
 						gc.strokeText(pointsText, 360, 36);
-						System.out.println("Player missed target");
+						System.out.println("Player missed target.");
 					}
 				}
 			}
