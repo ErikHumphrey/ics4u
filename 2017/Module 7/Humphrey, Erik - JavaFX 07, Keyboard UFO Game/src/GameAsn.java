@@ -149,31 +149,49 @@ public class GameAsn extends Application {
                 if (gameStatus == 1) {
                     // Check if UFO is colliding with the Earth
                     if (ufoBlueData.intersects(earthData.getBoundsInLocal())) {
+                    	this.stop(); // Stop the timer
                         gameStatus = 2;
                         alert.setHeaderText("Collision!");
                         alert.setContentText("Aliens have invaded earth");
-                        alert.show();
+                        alert.showAndWait();
+                        this.start();
                     }
                     if (ufoRedData.intersects(earthData.getBoundsInLocal())) {
+                    	this.stop(); 
                         gameStatus = 2;
                         alert.setHeaderText("Collision!");
                         alert.setContentText("Aliens have invaded earth");
-                        alert.show();
+                        alert.showAndWait();
+                        this.start();
                     }
                 }
 
+                if (gameStatus == 2) {
                 // Check if UFO is colliding with an asteroid
-                if (ufoBlueData.intersects(earthData.getBoundsInLocal())) {
+                if (ufoBlueData.intersects(asteroid1Data.getBoundsInLocal())) {
                     gameStatus = 3;
                     alert.setHeaderText("Collision!");
                     alert.setContentText("Aliens have invaded earth");
                     alert.show();
                 }
-                if (ufoRedData.intersects(earthData.getBoundsInLocal())) {
+                if (ufoRedData.intersects(asteroid1Data.getBoundsInLocal())) {
                     gameStatus = 3;
                     alert.setHeaderText("Collision!");
                     alert.setContentText("Aliens have invaded earth");
                     alert.show();
+                }
+                if (ufoBlueData.intersects(asteroid2Data.getBoundsInLocal())) {
+                    gameStatus = 3;
+                    alert.setHeaderText("Collision!");
+                    alert.setContentText("Aliens have invaded earth");
+                    alert.show();
+                }
+                if (ufoRedData.intersects(asteroid2Data.getBoundsInLocal())) {
+                    gameStatus = 3;
+                    alert.setHeaderText("Collision!");
+                    alert.setContentText("Aliens have invaded earth");
+                    alert.show();
+                }
                 }
                 
                 // Check if UFO is colliding with the Sun
