@@ -41,7 +41,7 @@ public class NameFind {
         }
 
         // Prints array in one line. Uncomment for debugging.
-        // System.out.println(Arrays.toString(nameArray));
+        System.out.println(Arrays.toString(nameArray));
 
         // Prompt user for anumber to search for 
         System.out.print("Enter a name to search for: ");

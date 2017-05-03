@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
@@ -28,7 +29,7 @@ public class GameAsn extends Application {
 
         Canvas canvas = new Canvas(512, 512);
         root.getChildren().add(canvas);
-
+        
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         // We need 3 images for this class
@@ -124,7 +125,7 @@ public class GameAsn extends Application {
 
                 if (gameStatus == 1) {
                     gc.drawImage(earth, earthX, earthY);
-                } else if (gameStatus == 2) {
+                } else if (gameStatus == 2 || gameStatus == 3) {
                     gc.drawImage(asteroid, asteroid1X, asteroid1Y);
                     gc.drawImage(asteroid, asteroid2X, asteroid2Y);
                 }
@@ -138,8 +139,10 @@ public class GameAsn extends Application {
                 asteroid2Data.setCenterY(asteroid2Y + 24);
 
                 // Add the UFOs
-                gc.drawImage(ufoBlue, ufoBlueData.getX(), ufoBlueData.getY());
-                gc.drawImage(ufoRed, ufoRedData.getX(), ufoRedData.getY());
+                if (gameStatus != 3 || gameStatus != 5)
+                	gc.drawImage(ufoBlue, ufoBlueData.getX(), ufoBlueData.getY());
+                if (gameStatus != 2 || gameStatus != 5)
+                	gc.drawImage(ufoRed, ufoRedData.getX(), ufoRedData.getY());
 
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
@@ -153,14 +156,19 @@ public class GameAsn extends Application {
                         gameStatus = 2;
                         alert.setHeaderText("Abduction!");
                         alert.setContentText("You captured a human and destroyed Earth, now escape the solar system!");
+                        // With more time, the player who did not reach Earth first would be able to shoot down asteroids with the mouse to help the other player
+                        Image cursor = new Image("reticleRed.png");
+                		root.setCursor(new ImageCursor(cursor, cursor.getWidth() / 2, cursor.getHeight() / 2));
                         alert.showAndWait();
                         this.start();
                     }
                     if (ufoRedData.intersects(earthData.getBoundsInLocal())) {
                         this.stop();
-                        gameStatus = 2;
+                        gameStatus = 3;
                         alert.setHeaderText("Abduction!");
                         alert.setContentText("You captured a human and destroyed Earth, now escape the solar system!");
+                        Image cursor = new Image("reticleBlue.png");
+                		root.setCursor(new ImageCursor(cursor, cursor.getWidth() / 2, cursor.getHeight() / 2));
                         alert.showAndWait();
                         this.start();
                     }
@@ -168,40 +176,39 @@ public class GameAsn extends Application {
 
                 if (gameStatus == 2) {
                     // Check if UFO is colliding with an asteroid
-                    if (ufoBlueData.intersects(asteroid1Data.getBoundsInLocal())) {
-                        gameStatus = 3;
-                        alert.setHeaderText("Collision!");
-                        alert.setContentText("Aliens have invaded earth");
-                        alert.show();
-                    }
-                    if (ufoRedData.intersects(asteroid1Data.getBoundsInLocal())) {
-                        gameStatus = 3;
-                        alert.setHeaderText("Collision!");
-                        alert.setContentText("Aliens have invaded earth");
-                        alert.show();
-                    }
-                    if (ufoBlueData.intersects(asteroid2Data.getBoundsInLocal())) {
-                        gameStatus = 3;
-                        alert.setHeaderText("Collision!");
-                        alert.setContentText("Aliens have invaded earth");
-                        alert.show();
-                    }
-                    if (ufoRedData.intersects(asteroid2Data.getBoundsInLocal())) {
-                        gameStatus = 3;
-                        alert.setHeaderText("Collision!");
-                        alert.setContentText("Aliens have invaded earth");
-                        alert.show();
-                    }
-                    
-                    // Check if UFO has escaped the bounds of the stage
-                    if (!ufoBlueData.intersects(canvas.getBoundsInLocal()))
-                    {
-                    	System.out.println("Victory!");
+                    if (ufoBlueData.intersects(asteroid1Data.getBoundsInLocal()) || ufoRedData.intersects(asteroid2Data.getBoundsInLocal())) {
+                        gameStatus = 4;
+                        alert.setHeaderText(fail);
+                        alert.setContentText("Lost contact with blue vessel\nCrew presumed dead");
+                        alert.showAndWait();
                     	System.exit(0);
                     }
-                    if (!ufoRedData.intersects(canvas.getBoundsInLocal()))
+
+                    if (ufoRedData.intersects(asteroid1Data.getBoundsInLocal()) || ufoRedData.intersects(asteroid2Data.getBoundsInLocal())) {
+                        gameStatus = 4;
+                        alert.setHeaderText(fail);
+                        alert.setContentText("Lost contact with red vessel\nCrew presumed dead");
+                        alert.showAndWait();
+                    	System.exit(0);
+                    }
+                    
+                    
+                    // Check if UFO has escaped the bounds of the stage
+                    if (!ufoBlueData.intersects(canvas.getBoundsInLocal()) && gameStatus != 5)
                     {
-                    	System.out.println("Victory!");
+                        gameStatus = 5;
+                    	alert.setHeaderText("Victory!");
+                        alert.setContentText("You escaped!");
+                    	alert.showAndWait();
+                    	System.exit(0);
+                    }
+                    // This stopped working for the red vessel and I don't know why
+                    if (!ufoRedData.intersects(canvas.getBoundsInLocal()) && gameStatus != 5)
+                    {
+                    	gameStatus = 5;
+                    	alert.setHeaderText("Victory!");
+                        alert.setContentText("You escaped!");
+                    	alert.showAndWait();
                     	System.exit(0);
                     }
                 }

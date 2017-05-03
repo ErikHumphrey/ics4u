@@ -18,6 +18,14 @@ public class Search {
             return -1;
     }
     
+    /**
+     * Returns the index of the element phraseToFind in array.
+     * -1 returned if element not found.
+     * pre: none
+     * post: index of phraseToFind has been returned.
+     * -1 has been returned if element not found.
+     */
+    
     public static int linear(String[] array, String phraseToFind) {
     	int index = 0;
     	
