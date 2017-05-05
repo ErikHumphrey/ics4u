@@ -218,20 +218,23 @@ public class GameAsn extends Application {
                     this.stop();
                     alert.setHeaderText(fail);
                     alert.setContentText("Lost contact with blue vessel\nCrew presumed dead");
-                    alert.show();
+                    alert.showAndWait();
+                    System.exit(0);
                 }
                 if (ufoRedData.intersects(sunData.getBoundsInLocal())) {
                     this.stop();
                     alert.setHeaderText(fail);
                     alert.setContentText("Lost contact with red vessel\nCrew presumed dead");
-                    alert.show();
+                    alert.showAndWait();
+                    System.exit(0);
                 }
                 // Check if UFO is colliding with another UFO
                 if (ufoBlueData.intersects(ufoRedData.getBoundsInLocal())) {
                     this.stop();
                     alert.setHeaderText(fail);
                     alert.setContentText("Lost contact with space vessels\nCrew presumed dead");
-                    alert.show();
+                    alert.showAndWait();
+                    System.exit(0);
                 }
             }
         }.start();
