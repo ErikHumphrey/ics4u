@@ -5,7 +5,7 @@ This repository has most projects from 2015–2017 but the curriculum and course
 
 Level 4+ student work for advanced placement university preparation high school computer science class in Ontario.
 
-#### ICS4UR Term Grades  
+#### ICS4UR grades  
 Mid|Final
 :-:|:-:
 98|TBD
