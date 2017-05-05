@@ -3,7 +3,8 @@ This repository has most projects from 2015–2017 but the curriculum and course
 
 # ICS4U
 
-Verified level 4+ work for advanced placement university preparation high school computer science class in Ontario.
+Verified level 4+ work for advanced placement university preparation high school computer science class in Ontario.  
+C# projects from 2015–2016 are undocumented.
 
 ### Recommended
 
