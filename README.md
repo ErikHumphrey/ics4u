@@ -1,9 +1,9 @@
-If you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and I will do my best to fix it!  
+If you notice a problem, [submit an issue](https://github.com/ErikHumphrey/ics4u/issues) and it will be resolved shortly. 
 This repository has most projects from 2015–2017 but the curriculum and course content are subject to change.
 
 # ICS4U
 
-Real level 4+ student work completed for advanced placement university preparation high school computer science class in Ontario.
+Level 4+ student work completed for advanced placement university preparation high school computer science class in Ontario.
 
 #### ICS4UR Term Grades  
 Mid|Final
