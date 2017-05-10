@@ -4,36 +4,25 @@ public class SeatingPlan {
 
     public int rows = 0, columns = 0;
 
+    private String[][] layout;
+    
     public SeatingPlan(int[] a) {
-        rows = a[0];
-        columns = a[1];
+        layout = new String[a[0]][a[1]];
     }
 
-    String[][] layout = new String[rows][columns];
-
-    System.out.println("Begin assigning students to seats.");
-    //
-    for (int i = 0; i < layout.length; i++)
-        for (int j = 0; j < layout[0].length; i++) {
-            System.out.println("Enter the name of the next student. (Enter 0 when done)");
-            layout[i][j] = input.nextLine();
-        }
-
-    input.close();
-
-    System.out.println("------------------\nStudent Roster\n");
-
-    for (int i = 0; i < layout.length; i++)
-        for (int j = 0;
-
-		j < layout[0].length; i++)
-            System.out.println(layout[i][j]);
-
-    System.out.println("loic");
+    public String[][] getLayout() {
+    	return layout;
+    }
     
-    public void addStudent() {
-		// TODO Auto-generated method stub
-		
+    public void setStudent(String name, int x, int y) {
+		layout[x][y] = name;
 	} 
-}
+    
+    public String getStudent(int x, int y) {
+		return layout[x][y];
+	} 
+    
+    public void displayClass() {
+    	System.out.println(Arrays.deepToString(layout));
+    }
 }
