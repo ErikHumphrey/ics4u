@@ -2,12 +2,19 @@ import java.util.*;
 
 public class SeatingPlan {
 
+	// TODO: ADD COMMENTS
+	// TODO: ADD COMMENTS
+	// TODO: ADD COMMENTS
+	// TODO: ADD COMMENTS
+	// TODO: ADD COMMENTS
+	
     public int rows = 0, columns = 0;
 
     private String[][] layout;
     
     public SeatingPlan(int[] a) {
         layout = new String[a[0]][a[1]];
+        System.out.println(Arrays.toString(layout));
     }
 
     public String[][] getLayout() {
@@ -24,5 +31,13 @@ public class SeatingPlan {
     
     public void displayClass() {
     	System.out.println(Arrays.deepToString(layout));
+    	String row = "";
+    	System.out.println(layout[0].length);
+    	for (int i = 0; i < layout.length; i++) {
+					System.out.println("\nRow is before: "+ row + "\n");
+    				row += layout[0][i] + (" yay");
+    				System.out.println("\nRow is after: "+ row + "\n");
+    				System.out.format(row);
+    	}
     }
 }
