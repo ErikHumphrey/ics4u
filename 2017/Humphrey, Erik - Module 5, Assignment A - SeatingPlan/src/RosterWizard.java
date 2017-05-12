@@ -44,6 +44,9 @@ public class RosterWizard {
             	System.out.println("Seated " + student + " at (" + (row) + ", " + (column) + ").");
             }
         
+        System.out.println("");
+        
+        
         //for (int i = 0; i < class1.getLayout().length; i++)
         //    for (int j = 0; j < class1.getLayout()[0].length; i++)
         //        System.out.println(class1.getLayout()[i][j]);

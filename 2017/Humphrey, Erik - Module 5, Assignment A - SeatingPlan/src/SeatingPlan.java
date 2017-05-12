@@ -33,9 +33,10 @@ public class SeatingPlan {
     	System.out.println(Arrays.deepToString(layout));
     	String row = "";
     	System.out.println(layout[0].length);
+    	System.out.println(row);
     	for (int i = 0; i < layout.length; i++) {
 					System.out.println("\nRow is before: "+ row + "\n");
-    				row += layout[0][i] + (" yay");
+    				row += layout[0][i] + (", yay");
     				System.out.println("\nRow is after: "+ row + "\n");
     				System.out.format(row);
     	}
