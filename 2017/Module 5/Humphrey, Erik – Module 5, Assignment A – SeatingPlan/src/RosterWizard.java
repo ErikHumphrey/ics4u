@@ -14,11 +14,11 @@ public class RosterWizard {
 
         int rows = 0, columns = 0;
 
-        Interrogator director = new Interrogator();
+        Interrogator ir = new Interrogator();
 
         SeatingPlan class1 = new SeatingPlan(new int[] {
-        		director.ask("How many rows of seating does your class have? "), 
-                director.ask("How many columns of seating does your class have? ")
+        		ir.ask("How many rows of seating does your class have? "), 
+                ir.ask("How many columns of seating does your class have? ")
         		});
         
         System.out.println("Class1 rows: " + class1.getLayout().length);
@@ -36,11 +36,11 @@ public class RosterWizard {
         for (int i = 0; i < class1.getLayout().length * class1.getLayout()[0].length; i++) {
         		System.out.print("Enter the name of the student to put here. ");
         		String student = input.nextLine();
-            	int row = director.ask("Enter the row you want " + student + " to sit in. ");
-            	int column = director.ask("Enter the column you want " + student + " to sit in. ");
+            	int row = ir.ask("Enter the row you want " + student + " to sit in. ");
+            	int column = ir.ask("Enter the column you want " + student + " to sit in. ");
             	class1.setStudent(student, row - 1, column - 1);
             	// err on side of caution
-            	director.skip(); // Possibly not necessary, but was essential to the code before I refactored it into its own class.
+            	ir.skip(); // Possibly not necessary, but was essential to the code before I refactored it into its own class.
             	System.out.println("Seated " + student + " at (" + (row) + ", " + (column) + ").");
             }
         
