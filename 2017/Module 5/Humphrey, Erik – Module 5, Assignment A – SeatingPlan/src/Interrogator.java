@@ -27,7 +27,7 @@ public class Interrogator {
         } while (badInput);
         
         badInput = true;
-        System.out.println("ERROR 100 OCCURRED. You shouldn't see this message.");
+        System.out.println("ERROR 100 OCCURRED. You shouldn't see this message; please contact the developer.");
         return 100;
     }
     

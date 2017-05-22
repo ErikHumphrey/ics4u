@@ -14,7 +14,7 @@ public class SeatingPlan {
     
     public SeatingPlan(int[] a) {
         layout = new String[a[0]][a[1]];
-        System.out.println(Arrays.toString(layout));
+        // System.out.println(Arrays.toString(layout));
     }
 
     public String[][] getLayout() {

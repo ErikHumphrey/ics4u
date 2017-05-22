@@ -21,9 +21,10 @@ public class RosterWizard {
                 ir.ask("How many columns of seating does your class have? ")
         		});
         
-        System.out.println("Class1 rows: " + class1.getLayout().length);
-        System.out.println("Class1 columns: " + class1.getLayout()[0].length);
-        System.out.println("Class1 seats: " + class1.getLayout().length * class1.getLayout()[0].length);
+        System.out.println("\nYour class has "
+        + class1.getLayout().length + " rows and " 
+        + class1.getLayout()[0].length + " columns ("
+        + class1.getLayout().length * class1.getLayout()[0].length + " seats total).");
 
         // Populate array with empty seats
         for (int i = 0; i < class1.getLayout().length; i++)
@@ -33,18 +34,22 @@ public class RosterWizard {
         Scanner input = new Scanner(System.in);;
         
         System.out.println("Begin assigning students to seats.");
+        System.out.println("To stop adding students, enter 0 instead of the next name.\n");
+        
         for (int i = 0; i < class1.getLayout().length * class1.getLayout()[0].length; i++) {
-        		System.out.print("Enter the name of the student to put here. ");
+        		System.out.print("Who do you want to add to the seating plan? ");
+        		if (input.nextLine().equals("0"))
+        			break;
+        		System.out.println("no");
         		String student = input.nextLine();
             	int row = ir.ask("Enter the row you want " + student + " to sit in. ");
             	int column = ir.ask("Enter the column you want " + student + " to sit in. ");
             	class1.setStudent(student, row - 1, column - 1);
-            	// err on side of caution
-            	ir.skip(); // Possibly not necessary, but was essential to the code before I refactored it into its own class.
+            	ir.skip(); // Possibly not necessary, but was essential before so it exists to err on the side of caution
             	System.out.println("Seated " + student + " at (" + (row) + ", " + (column) + ").");
             }
         
-        System.out.println("");
+        System.out.println("ayy");
         
         
         //for (int i = 0; i < class1.getLayout().length; i++)
