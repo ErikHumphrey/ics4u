@@ -1,8 +1,15 @@
-import java.util.Scanner;
+/**
+ * Project: Module 4 Assignment: High or Low Game
+ * Author: Erik Humphrey
+ * Description: Dice game in which the player wagers points on random outcomes
+ * Date: April 7, 2017
+ */
 
-import org.apache.commons.lang3.ArrayUtils;
+/**
+ * Client code: User inputs specifications of class to print out a visual representation of the seating plan
+ */
 
-public class RosterWizard {
+public class ClassSetup {
 
     // TODO: ADD COMMENTS
     // TODO: ADD COMMENTS
@@ -27,28 +34,14 @@ public class RosterWizard {
         // Populate array with empty seats
         for (int i = 0; i < class1.getLayout().length; i++)
             for (int j = 0; j < class1.getLayout()[0].length; j++)
-                class1.setStudent("[EMPTY]", i, j);
-
-        Scanner input = new Scanner(System.in);;
+                class1.setStudent("EMPTY", i, j);
 
         System.out.println("Begin assigning students to seats.");
         System.out.println("To stop adding students, enter 0 instead of the next name.\n");
 
         for (int i = 0; i < class1.getLayout().length * class1.getLayout()[0].length; i++) {
-            System.out.print("Who do you want to add to the seating plan? ");
-            String student = input.nextLine();
-            if (student.equals("0"))
-                break;
-            else {
-                int row = ir.ask("Enter the row you want " + student + " to sit in. ");
-                int column = ir.ask("Enter the column you want " + student + " to sit in. ");
-                class1.setStudent(student, row - 1, column - 1);
-                ir.skip(); // Possibly not necessary, but was essential before so it exists to err on the side of caution
-                System.out.println("Seated " + student + " at (" + (row) + ", " + (column) + ").");
-            }
+            class1.addStudent();
+            class1.displayClass();
         }
-
-        class1.displayClass();
-        input.close();
     }
 }
