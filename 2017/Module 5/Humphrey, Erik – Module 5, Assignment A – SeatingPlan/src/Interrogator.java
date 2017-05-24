@@ -1,7 +1,6 @@
 /**
  * Receives integer input and handles exceptions
  */
-
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -15,16 +14,15 @@ public class Interrogator {
      * pre: none
      * post: Interrogator object created.
      */
-    public Interrogator() {
-    }
+    public Interrogator() {}
 
     /**
-     * Print a 
+     * Prompt the user to enter a number and return it
      * pre: none
-     * post: COMPLETE ME AAAAAAAAAAAAAAAAAAAA
+     * post: Question parameter printed, user integer input returned
      */
     public int ask(String question) {
-    	badInput = true;
+        badInput = true;
         do {
             try {
                 System.out.print(question);
@@ -43,10 +41,5 @@ public class Interrogator {
         // CHANGE THIS TO CLOSE THE PROGRAM and PRINT THE EXCEPTION
         System.out.println("ERROR OCCURRED. You shouldn't see this message. Error code: 100");
         return 100;
-    }
-
-    // SEE IF NECESSARY, IF NOT REMOVE.
-    public void skip() {
-        input.nextLine();
     }
 }
