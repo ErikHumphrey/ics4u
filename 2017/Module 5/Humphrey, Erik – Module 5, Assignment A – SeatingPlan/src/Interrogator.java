@@ -38,7 +38,7 @@ public class Interrogator {
         } while (badInput);
 
         badInput = true;
-        // CHANGE THIS TO CLOSE THE PROGRAM and PRINT THE EXCEPTION
+        
         System.out.println("ERROR OCCURRED. You shouldn't see this message. Error code: 100");
         return 100;
     }

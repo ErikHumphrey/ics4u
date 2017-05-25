@@ -71,9 +71,9 @@ public class SeatingPlan {
     }
 
     /**
-     * Prompts the user for the name of a student and the seat to put them in
-     * pre: [y][x] inside bounds of layout
-     * post: Name assigned to a position in the layout array
+     * Sets the String element in the layout array to a name if it is a valid position 
+     * pre: none
+     * post: none
      */
     public void setStudent(String name, int x, int y) {
         try {
@@ -95,7 +95,7 @@ public class SeatingPlan {
     }
 
     /**
-     * Prints a visual representation of the class in spaced 
+     * Prints a visual representation of the class separated by spaces 
      * pre: none
      * post: The layout array has been printed with brackets and spaces between each element
      */
