@@ -1,0 +1,7 @@
+Create an Assign application that reads and then displays the contents of a file containing
+instructions for this assignment. Use Notepad or some other word processor to create the file.
+Be sure that the file is saved as a Text file (TXT). The Assign application will need to include
+the correct path to the location of the file. If a path is not specified, the file must be placed in
+the same folder as the Assignment executable file.
+
+Submit your source code to the Google Doc "ICS4U - Activity Submission Form"
