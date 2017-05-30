@@ -30,6 +30,7 @@ public class Assign {
             		   String out = web.next();
             		   web.close();
             		   writer.write(out);
+            		   System.out.println("File downloaded.");
             		   
             		   // Doesn't print new downloaded file, program just ends :(
                        fr = new FileReader(f);
