@@ -28,18 +28,22 @@ public class Main extends Application {
 		Button btnStart = new Button("Start");
 		
 		VBox vb = new VBox();
-		vb.setPadding(new Insets(10, 50, 50, 50));
+		vb.setPadding(new Insets(70, 427, 50, 50));
 		vb.setSpacing(10);
 		
+        Text title = new Text("Placeholder");
+        title.setFont(Font.font("Arial", FontWeight.BOLD, 40));
+        vb.getChildren().add(title);
+        
         // GridPane layout = new GridPane();
         vb.getChildren().add(btnStart);
 		
         Scene scene = new Scene(vb);
         mainWindow.setScene(scene);
         
-        Text title = new Text("Placeholder");
-        title.setFont(Font.font("Arial", FontWeight.BOLD, 40));
-        vb.getChildren().add(title);
+        com.sun.javafx.runtime.VersionInfo.getRuntimeVersion();
+        
+
 	}
 
 }
