@@ -1,4 +1,5 @@
 import javafx.animation.AnimationTimer;
+import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +21,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 public class Main extends Application {
 	public static void main(String[] args)  {
@@ -28,6 +30,8 @@ public class Main extends Application {
 	
 	float velocityY;
 	float gravity = 0.5f;
+    boolean onGround = true;
+    boolean secondJumpReady = true;
 	
 	@Override
 	public void start(Stage mainWindow) {
@@ -75,7 +79,7 @@ public class Main extends Application {
         // 
 
 		
-		Image placeholder = new Image("placeholderHero.png");
+		Image placeholder = new Image("placeholderHero3.png");
 		ImageView iv1 = new ImageView(placeholder);
 		//iv1.setImage(placeholder);
 		
@@ -95,7 +99,9 @@ public class Main extends Application {
 
 
 
-		Image lvl1 = new Image("placeholderLevel1-new.png");
+		Image lvl1 = new Image("placeholderLevelflat_test.png");
+		Image crouch = new Image("placeholderHero3Crouch.png");
+		Image spinpic = new Image("placeholderHeroSPIN3.png");
 		ImageView lvl11 = new ImageView(lvl1);
 		chars.getChildren().add(lvl11);
 		
@@ -108,7 +114,7 @@ public class Main extends Application {
 		});
 
 		lvl11.setLayoutY(-760);
-		lvl11.setLayoutX(-900);
+		lvl11.setLayoutX(1500);
 		
 		main.addEventFilter(KeyEvent.ANY, keyEvent -> {
 			if (keyEvent.getCode() == KeyCode.D) {
@@ -118,24 +124,55 @@ public class Main extends Application {
 		
 		
         final long startNanoTime = System.nanoTime();
-		
         
 		new AnimationTimer() {
 			public void handle(long time) { // Consider float
 				double t = (time - startNanoTime) / 1000000000.0;
 				
 				
-				if (velocityY != 0 || lvl11.getY() > 0) velocityY -= gravity;
+				if (velocityY != 0 || lvl11.getY() > 0) {
+					velocityY -= gravity;
+				}
+				
 				lvl11.setY(lvl11.getY() + velocityY);
-				System.out.println(velocityY);
+				lvl11.setX(lvl11.getX() - 30);
+				System.out.println(lvl11.getX());
+				
+				if (lvl11.getY() < 0) {
+					velocityY = 0;
+					lvl11.setY(0);
+					onGround = true;
+					iv1.setImage(placeholder);
+					secondJumpReady = true;
+				}
 			}
 		}.start();
+		
+		RotateTransition spin = new RotateTransition(Duration.millis(1000), iv1);
+        spin.setByAngle(360);
+        spin.setDuration(Duration.millis(800));
+        spin.setCycleCount(1);
 		
 		main.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
-				case W: velocityY = 12; break;
+				case W:
+					if (onGround) { 
+						velocityY = 12;
+						onGround = false;
+					}
+					else if (secondJumpReady) {
+						spin.play();
+						velocityY = 12;
+						iv1.setImage(spinpic);
+						secondJumpReady = false;
+					}
+					break;
+				case S:
+					iv1.setImage(crouch);
+					iv1.setY(iv1.getLayoutY() - 2000);
+					break;
 				}
 			}
 		});
@@ -145,6 +182,10 @@ public class Main extends Application {
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
 				case W: break;
+				case S:
+					iv1.setImage(placeholder);
+					iv1.setY(iv1.getLayoutY() + 2000);
+					break;
 				}
 			}
 		});
