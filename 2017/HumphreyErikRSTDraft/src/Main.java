@@ -83,7 +83,15 @@ public class Main extends Application {
 		ImageView iv1 = new ImageView(placeholder);
 		//iv1.setImage(placeholder);
 		
+		Image ground = new Image("phground.png");
+		Image platform = new Image("phplatform.png");
+		
 
+		ImageView iv2 = new ImageView(platform);
+
+		ImageView iv3 = new ImageView(ground);
+		
+		
         FlowPane fp = new FlowPane();
         buttons.getChildren().add(vb);
 		
@@ -97,14 +105,21 @@ public class Main extends Application {
 		vb2.setSpacing(10);
 		vb2.getChildren().add(iv1);
 
+		System.out.println(iv3.getX());
+		System.out.println(iv3.getLayoutX());
+		iv3.setX(0);
+		iv3.setY(280);
 
 
-		Image lvl1 = new Image("placeholderLevelflat_test.png");
+		Image lvl1 = new Image("phBlankFlat2tester2.png");
 		Image crouch = new Image("placeholderHero3Crouch.png");
 		Image spinpic = new Image("placeholderHeroSPIN3.png");
+
+		
 		ImageView lvl11 = new ImageView(lvl1);
 		chars.getChildren().add(lvl11);
-		
+
+		chars.getChildren().add(iv3);
 		chars.getChildren().add(vb2);		
 		
 		btnStart.setOnAction(new EventHandler<ActionEvent>() {
@@ -136,7 +151,7 @@ public class Main extends Application {
 				
 				lvl11.setY(lvl11.getY() + velocityY);
 				lvl11.setX(lvl11.getX() - 30);
-				System.out.println(lvl11.getX());
+				// System.out.println(lvl11.getX());
 				
 				if (lvl11.getY() < 0) {
 					velocityY = 0;
