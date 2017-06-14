@@ -11,11 +11,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -42,12 +45,91 @@ public class Main extends Application {
 		mainWindow.setResizable(false);
 
 		mainWindow.show();
-		Button btnStart = new Button("Start");
+		Button btnStart = new Button("Continue Game");
 		Button btnStart2 = new Button("Options");
 		Button btnStart3 = new Button("Quit");
 		
 		Group buttons = new Group();
 		Scene menu = new Scene(buttons);
+		
+		Group saveFiles = new Group();
+		Scene saveSelect = new Scene(saveFiles);
+		
+		Button btnSelect = new Button("Select");
+		saveFiles.getChildren().add(btnSelect);
+		btnSelect.setLayoutX(660);
+		btnSelect.setLayoutY(370);
+		btnSelect.setFont(Font.font("Constantia", FontWeight.BOLD, 25));
+		System.out.println(btnSelect.getLayoutX() + btnSelect.getLayoutY());
+		
+		Button btnDelete = new Button("Delete");
+		saveFiles.getChildren().add(btnDelete);
+		btnDelete.setLayoutX(64);
+		btnDelete.setLayoutY(370);
+		btnDelete.setFont(Font.font("Constantia", FontWeight.LIGHT, 25));
+		System.out.println(btnDelete.getLayoutX() + btnDelete.getLayoutY());
+		
+		Rectangle save1 = new Rectangle(65, 25, 700, 100);
+		save1.setFill(Color.rgb(239, 239, 239));
+		save1.setStroke(Color.rgb(165, 165, 165));
+		saveFiles.getChildren().add(save1);
+		
+		Rectangle save2 = new Rectangle(65, 140, 700, 100);
+		save2.setFill(Color.rgb(239, 239, 239));
+		save2.setStroke(Color.rgb(165, 165, 165));
+		saveFiles.getChildren().add(save2);
+		
+		Rectangle save3 = new Rectangle(65, 255, 700, 100);
+		save3.setFill(Color.rgb(239, 239, 239));
+		save3.setStroke(Color.rgb(165, 165, 165));
+		saveFiles.getChildren().add(save3);
+		
+		// lol make this a class
+		
+		save1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent e) {
+				save1.setFill(Color.rgb(239, 231, 172));
+				save1.setStroke(Color.rgb(239, 205, 2));
+
+				save2.setFill(Color.rgb(239, 239, 239));
+				save2.setStroke(Color.rgb(165, 165, 165));
+
+				save3.setFill(Color.rgb(239, 239, 239));
+				save3.setStroke(Color.rgb(165, 165, 165));
+				mainWindow.setScene(saveSelect);
+			}
+		});
+		
+		save2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent e) {
+				save2.setFill(Color.rgb(239, 231, 172));
+				save2.setStroke(Color.rgb(239, 205, 2));
+
+				save1.setFill(Color.rgb(239, 239, 239));
+				save1.setStroke(Color.rgb(165, 165, 165));
+
+				save3.setFill(Color.rgb(239, 239, 239));
+				save3.setStroke(Color.rgb(165, 165, 165));
+				mainWindow.setScene(saveSelect);
+			}
+		});
+		
+		save3.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent e) {
+				save3.setFill(Color.rgb(239, 231, 172));
+				save3.setStroke(Color.rgb(239, 205, 2));
+				
+				save1.setFill(Color.rgb(239, 239, 239));
+				save1.setStroke(Color.rgb(165, 165, 165));
+
+				save2.setFill(Color.rgb(239, 239, 239));
+				save2.setStroke(Color.rgb(165, 165, 165));
+				mainWindow.setScene(saveSelect);
+			}
+		});
+		
+
+		// Custom cursors are super neat, add them
 		
 		// GitHub github = new GitHub();
 		
@@ -66,7 +148,7 @@ public class Main extends Application {
 		//bp.setCenter(vb);
 		
 
-        Text title = new Text("Placeholder");
+        Text title = new Text("Hometown Hero");
         title.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 15));
         vb.getChildren().add(title);
 		vb.getChildren().add(btnStart);
@@ -109,7 +191,13 @@ public class Main extends Application {
 		System.out.println(iv3.getLayoutX());
 		iv3.setX(0);
 		iv3.setY(280);
-
+		// remove this
+		btnSelect.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		@Override public void handle(MouseEvent e) {
+			mainWindow.setScene(main);
+		}
+		});
+		
 
 		Image lvl1 = new Image("phBlankFlat2tester2.png");
 		Image crouch = new Image("placeholderHero3Crouch.png");
@@ -124,7 +212,7 @@ public class Main extends Application {
 		
 		btnStart.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e) {
-				mainWindow.setScene(main);
+				mainWindow.setScene(saveSelect);
 			}
 		});
 
@@ -151,15 +239,22 @@ public class Main extends Application {
 				
 				lvl11.setY(lvl11.getY() + velocityY);
 				lvl11.setX(lvl11.getX() - 30);
+				
+				// System.out.println(iv3.getX() + ", " + iv3.getY());
+				
+				iv3.setY(iv3.getY() + velocityY);
+				
 				// System.out.println(lvl11.getX());
 				
 				if (lvl11.getY() < 0) {
 					velocityY = 0;
 					lvl11.setY(0);
+					iv3.setY(280);
 					onGround = true;
 					iv1.setImage(placeholder);
 					secondJumpReady = true;
 				}
+				
 			}
 		}.start();
 		
