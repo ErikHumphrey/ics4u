@@ -35,6 +35,7 @@ public class Main extends Application {
 	float gravity = 0.5f;
     boolean onGround = true;
     boolean secondJumpReady = true;
+    boolean gameStarted = true;
 	
 	@Override
 	public void start(Stage mainWindow) {
@@ -225,13 +226,15 @@ public class Main extends Application {
 			}
 		});
 		
-		
+
         final long startNanoTime = System.nanoTime();
         
+        
+        
 		new AnimationTimer() {
-			public void handle(long time) { // Consider float
-				double t = (time - startNanoTime) / 1000000000.0;
+			public void handle(long now) { // Consider float
 				
+				System.out.println(now - System.nanoTime());
 				
 				if (velocityY != 0 || lvl11.getY() > 0) {
 					velocityY -= gravity;
