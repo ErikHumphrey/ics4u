@@ -1,3 +1,6 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.animation.AnimationTimer;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -18,7 +21,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -36,6 +41,7 @@ public class Main extends Application {
     boolean onGround = true;
     boolean secondJumpReady = true;
     boolean gameStarted = true;
+	Timer timer = new Timer();
 	
 	@Override
 	public void start(Stage mainWindow) {
@@ -233,8 +239,7 @@ public class Main extends Application {
         
 		new AnimationTimer() {
 			public void handle(long now) { // Consider float
-				
-				System.out.println(now - System.nanoTime());
+
 				
 				if (velocityY != 0 || lvl11.getY() > 0) {
 					velocityY -= gravity;
@@ -261,6 +266,13 @@ public class Main extends Application {
 			}
 		}.start();
 		
+		timer.scheduleAtFixedRate(new TimerTask() {
+		@Override
+		public void run() {
+			System.out.println("Every second this message appears.");
+		}
+		}, 0, 1000);
+		
 		RotateTransition spin = new RotateTransition(Duration.millis(1000), iv1);
         spin.setByAngle(360);
         spin.setDuration(Duration.millis(800));
@@ -286,6 +298,8 @@ public class Main extends Application {
 					iv1.setImage(crouch);
 					iv1.setY(iv1.getLayoutY() - 2000);
 					break;
+				default:
+					break;
 				}
 			}
 		});
@@ -299,9 +313,27 @@ public class Main extends Application {
 					iv1.setImage(placeholder);
 					iv1.setY(iv1.getLayoutY() + 2000);
 					break;
+				default:
+					break;
 				}
 			}
 		});
+		
+
+		Shape circle = new Circle(200, 200, 200);
+		Shape rect = new Rectangle(0, 0, 600, 600);
+		Shape region = Shape.subtract(rect, circle);
+		region.setFill(Color.BLACK);
+		saveFiles.getChildren().add(region);
+		
+		
 	}
 
+	// When the Application is closed, the stop() method is triggered
+	@Override
+	public void stop() {
+		System.out.println("Application window is closing.");
+		timer.cancel(); // Stop the timer so it doesn't keep running after program closed
+		/// TODO: Put saving operation here
+	}
 }
