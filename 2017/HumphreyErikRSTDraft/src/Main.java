@@ -50,7 +50,10 @@ public class Main extends Application {
 		mainWindow.setHeight(480);
         mainWindow.centerOnScreen();
 		mainWindow.setResizable(false);
-
+		
+		Porcupine porc = new Porcupine();
+		System.out.println(porc.nextFrame());
+		
 		mainWindow.show();
 		Button btnStart = new Button("Continue Game");
 		Button btnStart2 = new Button("Options");
@@ -90,6 +93,10 @@ public class Main extends Application {
 		save3.setFill(Color.rgb(239, 239, 239));
 		save3.setStroke(Color.rgb(165, 165, 165));
 		saveFiles.getChildren().add(save3);
+
+        Text saveName = new Text("Save1");
+        saveName.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 15));
+		saveFiles.getChildren().add(saveName);
 		
 		// lol make this a class
 		
@@ -155,7 +162,7 @@ public class Main extends Application {
 		//bp.setCenter(vb);
 		
 
-        Text title = new Text("Hometown Hero");
+        Text title = new Text("you have to navigate through the menus very quickly for anything to happen");
         title.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 15));
         vb.getChildren().add(title);
 		vb.getChildren().add(btnStart);
@@ -246,7 +253,7 @@ public class Main extends Application {
 				}
 				
 				lvl11.setY(lvl11.getY() + velocityY);
-				lvl11.setX(lvl11.getX() - 30);
+				lvl11.setX(lvl11.getX() - 10);
 				
 				// System.out.println(iv3.getX() + ", " + iv3.getY());
 				
@@ -272,6 +279,7 @@ public class Main extends Application {
 			System.out.println("Every second this message appears.");
 		}
 		}, 0, 1000);
+		
 		
 		RotateTransition spin = new RotateTransition(Duration.millis(1000), iv1);
         spin.setByAngle(360);
@@ -319,16 +327,23 @@ public class Main extends Application {
 			}
 		});
 		
-
-		Shape circle = new Circle(200, 200, 200);
-		Shape rect = new Rectangle(0, 0, 600, 600);
+		Shape circle = new Circle(400, 210, 200);
+		Shape rect = new Rectangle(0, 0, 854, 480);
 		Shape region = Shape.subtract(rect, circle);
 		region.setFill(Color.BLACK);
-		saveFiles.getChildren().add(region);
+		/// saveFiles.getChildren().add(region);
 		
-		
+
 	}
 
+	//@Override
+	//public void handle(long now) {
+	//	if (now - lastUpdate >= 100_000_000 {
+	//		doThing();
+	//		lastUpdate = now;
+	//  }
+	//}
+	
 	// When the Application is closed, the stop() method is triggered
 	@Override
 	public void stop() {

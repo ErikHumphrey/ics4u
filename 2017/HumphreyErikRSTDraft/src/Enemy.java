@@ -1,3 +1,5 @@
+import java.util.TimerTask;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -25,6 +27,5 @@ public class Enemy extends ImageView {
 		else return false;
 	}
 	
-
 	public Image getSprite() {return sprite;}
 }
