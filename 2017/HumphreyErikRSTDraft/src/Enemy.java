@@ -27,7 +27,7 @@ public class Enemy extends ImageView {
 	
 	/** Remove health when taking damage, remove object if health is 0
 	 * pre: none
-	 * post: Health has been reduced by 1
+	 * post: Health has been reduced by 1 */
 	public boolean hurt() {
 		health--;
 		
