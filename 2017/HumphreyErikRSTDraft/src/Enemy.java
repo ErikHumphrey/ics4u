@@ -9,15 +9,25 @@ public class Enemy extends ImageView {
 	Image sprite = new Image("placeholderLevel1.png");
 	Animation an = new Animation();
 	
+	/** constructor
+	 * pre: none
+	 * post: An Enemy object is created. Its health is initialized as 3. */
 	public Enemy() {
 		health = 3; // Number of attacks required to kill the monster
-		
 	}
 	
-	public Enemy(int x, int y) {
-		
+	/** constructor
+	 * pre: none
+	 * post: An Enemy object is created. Its health and coordinate positions are initalized. */
+	public Enemy(int hp, int x, int y) {
+		health = hp;
+		setX(x);
+		setY(y);
 	}
 	
+	/** Remove health when taking damage, remove object if health is 0
+	 * pre: none
+	 * post: Health has been reduced by 1
 	public boolean hurt() {
 		health--;
 		
@@ -27,5 +37,8 @@ public class Enemy extends ImageView {
 		else return false;
 	}
 	
+	/** Gets the sprite image that represents the object
+	 * pre: none
+	 * post: An image has been returned. */
 	public Image getSprite() {return sprite;}
 }
