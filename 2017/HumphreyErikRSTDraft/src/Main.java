@@ -205,7 +205,8 @@ public class Main extends Application {
             }
         });
 
-        /* Would be used for cartoon-like transition animation where circle closes/opens up around character as scene changes
+        /* As scene changes, Would be used for cartoon-like transition animation where circle closes/opens up around character
+         * Basically cuts a transparent circle of a certain radius out of a black rectangle
         Shape circle = new Circle(400, 210, 200);
         Shape rect = new Rectangle(0, 0, 854, 480);
         Shape region = Shape.subtract(rect, circle);
@@ -220,6 +221,6 @@ public class Main extends Application {
         try {
             g.timer.cancel();
         } catch (NullPointerException e) {} // Stop the timer so it doesn't keep running after program closes
-        // The game would be saved here
+        // The game would be saved here, with details printed to the console
     }
 }
