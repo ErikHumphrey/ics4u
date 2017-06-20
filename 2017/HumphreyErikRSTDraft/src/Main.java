@@ -41,6 +41,7 @@ public class Main extends Application {
     boolean onGround = true;
     boolean secondJumpReady = true;
     boolean gameStarted = true;
+	Game g;
 	Timer timer = new Timer();
 	
 	@Override
@@ -180,10 +181,8 @@ public class Main extends Application {
 		//iv1.setImage(placeholder);
 		
 		Image ground = new Image("phground.png");
-		Image platform = new Image("phplatform.png");
 		
 
-		ImageView iv2 = new ImageView(platform);
 
 		ImageView iv3 = new ImageView(ground);
 		
@@ -193,8 +192,7 @@ public class Main extends Application {
 		
 		mainWindow.setScene(menu);
 		
-		Group chars = new Group();
-		Scene main = new Scene(chars);
+
 		
 		VBox vb2 = new VBox(); // Create box of vertically aligned elements
 		vb2.setPadding(new Insets(180, 427, 50, 370));
@@ -206,23 +204,19 @@ public class Main extends Application {
 		iv3.setX(0);
 		iv3.setY(280);
 		// remove this
+		
 		btnSelect.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		@Override public void handle(MouseEvent e) {
-			mainWindow.setScene(main);
+			g = new Game();
+			mainWindow.setScene(g.gameplay);
 		}
 		});
 		
+		
 
 		Image lvl1 = new Image("phBlankFlat2tester2.png");
-		Image crouch = new Image("placeholderHero3Crouch.png");
-		Image spinpic = new Image("placeholderHeroSPIN3.png");
-
 		
 		ImageView lvl11 = new ImageView(lvl1);
-		chars.getChildren().add(lvl11);
-
-		chars.getChildren().add(iv3);
-		chars.getChildren().add(vb2);		
 		
 		btnStart.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e) {
@@ -230,48 +224,12 @@ public class Main extends Application {
 			}
 		});
 
-		lvl11.setLayoutY(-760);
-		lvl11.setLayoutX(1500);
-		
-		main.addEventFilter(KeyEvent.ANY, keyEvent -> {
-			if (keyEvent.getCode() == KeyCode.D) {
-				lvl11.setLayoutX(lvl11.getLayoutX() - 10);
-			}
-		});
-		
 
         final long startNanoTime = System.nanoTime();
         
         
         
-		new AnimationTimer() {
-			public void handle(long now) { // Consider float
 
-				
-				if (velocityY != 0 || lvl11.getY() > 0) {
-					velocityY -= gravity;
-				}
-				
-				lvl11.setY(lvl11.getY() + velocityY);
-				lvl11.setX(lvl11.getX() - 10);
-				
-				// System.out.println(iv3.getX() + ", " + iv3.getY());
-				
-				iv3.setY(iv3.getY() + velocityY);
-				
-				// System.out.println(lvl11.getX());
-				
-				if (lvl11.getY() < 0) {
-					velocityY = 0;
-					lvl11.setY(0);
-					iv3.setY(280);
-					onGround = true;
-					iv1.setImage(placeholder);
-					secondJumpReady = true;
-				}
-				
-			}
-		}.start();
 		
 		timer.scheduleAtFixedRate(new TimerTask() {
 		@Override
@@ -280,52 +238,7 @@ public class Main extends Application {
 		}
 		}, 0, 1000);
 		
-		
-		RotateTransition spin = new RotateTransition(Duration.millis(1000), iv1);
-        spin.setByAngle(360);
-        spin.setDuration(Duration.millis(800));
-        spin.setCycleCount(1);
-		
-		main.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent event) {
-				switch (event.getCode()) {
-				case W:
-					if (onGround) { 
-						velocityY = 12;
-						onGround = false;
-					}
-					else if (secondJumpReady) {
-						spin.play();
-						velocityY = 12;
-						iv1.setImage(spinpic);
-						secondJumpReady = false;
-					}
-					break;
-				case S:
-					iv1.setImage(crouch);
-					iv1.setY(iv1.getLayoutY() - 2000);
-					break;
-				default:
-					break;
-				}
-			}
-		});
-		
-		main.setOnKeyReleased(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent event) {
-				switch (event.getCode()) {
-				case W: break;
-				case S:
-					iv1.setImage(placeholder);
-					iv1.setY(iv1.getLayoutY() + 2000);
-					break;
-				default:
-					break;
-				}
-			}
-		});
+
 		
 		Shape circle = new Circle(400, 210, 200);
 		Shape rect = new Rectangle(0, 0, 854, 480);
