@@ -28,30 +28,31 @@ public class Game {
     // VERY temporary
 	Image crouch = new Image("placeholderHero3Crouch.png");
 	Image spinpic = new Image("placeholderHeroSPIN3.png");
-
 	
 	public float velocityY;
 	private final float gravity = 0.5f;
 	
+	/** constructor
+	 * pre: none
+	 * post: The scene has been populated with ImageView nodes
+	 */
 	public Game() {
 
-		objects.getChildren().add(background);
-		objects.getChildren().add(foreground);
-		
-		VBox verticalAlignment = new VBox(10.0); // Create vertical box with spacing 10.0
+		// Add the player character graphic to a vertical box that positions it in the centre of the stage
+		VBox verticalAlignment = new VBox(10.0); 
 		verticalAlignment.setPadding(new Insets(180, 427, 50, 370));
-		verticalAlignment.getChildren().add(hero); // Add player character to VBox to centre in stage
-		
+		verticalAlignment.getChildren().add(hero);
 
+		// Initialize positions of imagery
 		background.setLayoutX(1500); background.setLayoutY(-760);
-		
-		objects.getChildren().add(verticalAlignment);
-		
 		foreground.setX(0); foreground.setY(200);
 		
+		objects.getChildren().add(background);
+		objects.getChildren().add(foreground);
+		objects.getChildren().add(verticalAlignment);
+		
 		new AnimationTimer() {
-			public void handle(long now) { // Consider float
-
+			public void handle(long now) {
 				
 				if (velocityY != 0 || background.getY() > 0) {
 					velocityY -= gravity;
@@ -60,14 +61,10 @@ public class Game {
 				background.setY(background.getY() + velocityY);
 				background.setX(background.getX() - 10);
 				
-				// System.out.println(iv3.getX() + ", " + iv3.getY());
-				
 				/* Move the ground vertically according to velocity
 				 * Illusion that the player character is jumping up or falling back down
 				 */
 				foreground.setY(foreground.getY() + velocityY);
-				
-				// System.out.println(lvl11.getX());
 				
 				if (background.getY() < 0) {
 					velocityY = 0;
@@ -88,31 +85,29 @@ public class Game {
 			}
 		});
 		
-		
-		
 		gameplay.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				switch (event.getCode()) {
 				case W:
 					if (onGround) { 
-						velocityY = 12;
+						velocityY = 12; // Increase vertical movement speed
 						onGround = false;
 					}
 					else if (secondJumpReady) {
-						 // Smoothly rotate the player character about its centre over 0.8 seconds
-						RotateTransition spin = new RotateTransition(Duration.millis(0.8*1000), hero);
+						// Jump again!!
+						// Smoothly rotate the player character about its centre over 0.8 seconds
+						RotateTransition spin = new RotateTransition(Duration.millis(0.8 * 1000), hero);
 				        spin.setByAngle(360);
 				        spin.setCycleCount(1);
 						spin.play();
 						velocityY = 12;
-						hero.setImage(spinpic); // Set player animation state to spinning to empower the double jump ability
-						secondJumpReady = false;
+						hero.setImage(spinpic); // Set player animation state to spinning, empowering the second jump
+						secondJumpReady = false; // Prevent player from continually jumping higher
 					}
 					break;
 				case S:
 					hero.setImage(crouch); // Set player animation state to crouched
-					hero.setY(hero.getLayoutY() - 2000);
 					break;
 				default:
 					break;
@@ -127,7 +122,6 @@ public class Game {
 				case W: break;
 				case S:
 					hero.setImage(heroInit); // Reset player animation state to standing
-					hero.setY(hero.getLayoutY() + 2000);
 					break;
 				default:
 					break;

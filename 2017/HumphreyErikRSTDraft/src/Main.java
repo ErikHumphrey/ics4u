@@ -1,8 +1,3 @@
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javafx.animation.AnimationTimer;
-import javafx.animation.RotateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,15 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -28,14 +15,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
+
+import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main extends Application {
-	public static void main(String[] args)  {
-		launch(args);
-	}
-	
+
 	float velocityY;
 	float gravity = 0.5f;
     boolean onGround = true;
@@ -71,14 +57,12 @@ public class Main extends Application {
 		btnSelect.setLayoutX(660);
 		btnSelect.setLayoutY(370);
 		btnSelect.setFont(Font.font("Constantia", FontWeight.BOLD, 25));
-		System.out.println(btnSelect.getLayoutX() + btnSelect.getLayoutY());
 		
 		Button btnDelete = new Button("Delete");
 		saveFiles.getChildren().add(btnDelete);
 		btnDelete.setLayoutX(64);
 		btnDelete.setLayoutY(370);
 		btnDelete.setFont(Font.font("Constantia", FontWeight.LIGHT, 25));
-		System.out.println(btnDelete.getLayoutX() + btnDelete.getLayoutY());
 		
 		Rectangle save1 = new Rectangle(65, 25, 700, 100);
 		save1.setFill(Color.rgb(239, 239, 239));
@@ -193,7 +177,7 @@ public class Main extends Application {
 	// When the Application is closed, the stop() method is triggered
 	@Override
 	public void stop() {
-		System.out.println("Application window is closing.");
+		System.out.println(new File((getClass().getName()) + ".java").getAbsoluteFile().getParent());
 		timer.cancel(); // Stop the timer so it doesn't keep running after program closed
 		/// TODO: Put saving operation here
 	}
