@@ -26,6 +26,7 @@ import java.nio.file.StandardCopyOption;
 
 // TODO:
 // * Edit background to add signs that show the game's controls and give an idea of the player's position
+// * Make game playable
 // * Add the ability for the hero to attack enemies
 // * Add enemies
 // * Add sprite animations
@@ -33,18 +34,15 @@ import java.nio.file.StandardCopyOption;
 // * Graphically show score/time played
 // * Save and load time played and position of character
 // * Make save selection screen work
+// * Add character selection screen
+// * Draw images that aren't placeholder or import sprite images
+// * Add self-made 3D ground image
 // * Add custom cursors
 
 public class Main extends Application {
 
-    float velocityY;
-    float gravity = 0.5f;
-    boolean onGround = true;
-    boolean secondJumpReady = true;
     boolean gameStarted = true;
-    int timeElapsed = 0;
     Game g;
-    Timer timer = new Timer();
 
     @Override
     public void start(Stage mainWindow) {
@@ -137,7 +135,6 @@ public class Main extends Application {
             }
         });
 
-
         buttons.getChildren().add(btnStart);
 
         VBox vb = new VBox(); // Create box of vertically aligned elements
@@ -170,8 +167,10 @@ public class Main extends Application {
             }
         });
 
+        // Download the source code of the project and images from the internet, then close the program
         btnUpdate.setOnAction(new EventHandler < ActionEvent > () {
             @Override public void handle(ActionEvent e) {
+                System.out.println("Preparing to update.");
                 // Download list of source files
                 File textFile = new File("files.txt");
                 if (textFile.exists()) {
@@ -189,17 +188,20 @@ public class Main extends Application {
                     try (BufferedReader br = new BufferedReader(new FileReader(textFile))) {
                         String line;
                         while ((line = br.readLine()) != "a") {
-                            System.out.println("Downloading " + line + ".");
-                            try (InputStream in = new URL("https://raw.githubusercontent.com/ErikHumphrey/ics4u/master/2017/HumphreyErikRSTDraft/src/" + line + ".txt").openStream()) {
+                            if (line != null) System.out.println("Downloading " + line + ".");
+                            try (InputStream in = new URL("https://raw.githubusercontent.com/ErikHumphrey/ics4u/master/2017/HumphreyErikRSTDraft/src/" + line).openStream()) {
                                 Files.copy( in , Paths.get(line), StandardCopyOption.REPLACE_EXISTING);
                             }
                         }
 
                     }
                 } catch (IOException e3) {
-                    System.out.println("Problem reading or writing file.");
-                    System.err.println("IOException: " + e3.getMessage());
+                    System.out.println("Closing program. Compile and run the program and it will be up-to-date!");
+                    System.exit(0);
+                    // System.err.println("IOException: " + e3.getMessage());
                 }
+
+                // TODO: Delete files that are no longer part of the program.
             }
         });
 
@@ -215,7 +217,9 @@ public class Main extends Application {
     @Override
     public void stop() {
         System.out.println("Hometown Hero is closing.");
-        timer.cancel(); // Stop the timer so it doesn't keep running after program closes
+        try {
+            g.timer.cancel();
+        } catch (NullPointerException e) {} // Stop the timer so it doesn't keep running after program closes
         // The game would be saved here
     }
 }
