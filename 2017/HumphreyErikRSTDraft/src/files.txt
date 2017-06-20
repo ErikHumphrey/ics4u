@@ -5,3 +5,8 @@ Hero.java
 Main.java
 Porcupine.java
 SavedGame.java
+ground.png
+imgHeroCrouch.png
+imgHeroSpin.png
+phBlankFlat2tester2.png
+placeholderHero3.png
