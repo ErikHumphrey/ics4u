@@ -177,8 +177,8 @@ public class Main extends Application {
 	// When the Application is closed, the stop() method is triggered
 	@Override
 	public void stop() {
-		System.out.println(new File((getClass().getName()) + ".java").getAbsoluteFile().getParent());
-		timer.cancel(); // Stop the timer so it doesn't keep running after program closed
+		System.out.println("Hometown Hero is closing.");
+		timer.cancel(); // Stop the timer so it doesn't keep running after program closes
 		/// TODO: Put saving operation here
 	}
 }

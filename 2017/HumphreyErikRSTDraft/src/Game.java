@@ -17,7 +17,7 @@ public class Game {
 	public Scene gameplay = new Scene(objects);
 
 	private final Image bg = new Image("phBlankFlat2tester2.png"); // Rename image, add looping background
-	private final Image fg = new Image("phground.png");
+	private final Image fg = new Image("ground3dnewtesssttt.png");
 	private final Image heroInit = new Image("placeholderHero3.png");
 	private ImageView background = new ImageView(bg);
 	private ImageView foreground = new ImageView(fg);
