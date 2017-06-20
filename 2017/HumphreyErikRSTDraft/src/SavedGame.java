@@ -1,4 +1,4 @@
-import javafx.scene.image.ImageView;
+// Represents a saved game
 
 public class SavedGame {
 
