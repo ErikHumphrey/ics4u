@@ -2,6 +2,8 @@
 // The porcupine is short enough that standing attacks would miss.
 // The porcupine would deal damage if bumped into, but it doesn't pursue the player.
 
+import javafx.scene.image.Image;
+
 public class Porcupine extends Enemy {
 	/** constructor
 	 * pre: none

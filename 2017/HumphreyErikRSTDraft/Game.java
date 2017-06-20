@@ -1,8 +1,5 @@
 // Instantiated every time the player starts a new game
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import javafx.animation.AnimationTimer;
 import javafx.animation.RotateTransition;
 import javafx.event.EventHandler;
@@ -21,19 +18,18 @@ public class Game {
 	private Group objects = new Group();
 	public Scene gameplay = new Scene(objects);
 
-	private final Image bg = new Image("phBlankFlat2tester2.png");
-	private final Image fg = new Image("ground.png");
+	private final Image bg = new Image("phBlankFlat2tester2.png"); // Rename image, add looping background
+	private final Image fg = new Image("ground3dnewtesssttt.png");
 	private final Image heroInit = new Image("placeholderHero3.png");
 	private ImageView background = new ImageView(bg);
 	private ImageView foreground = new ImageView(fg);
 	private ImageView hero = new ImageView(heroInit);
 	private boolean onGround = true;
     private boolean secondJumpReady = true;
-    private int timeElapsed = 0;
     
-    // Temporary images before sprite animation is added
-	Image crouching = new Image("imgHeroCrouching.png");
-	Image spinning = new Image("imgHeroSpin.png");
+    	// Temporary images before sprite animation is added
+	Image crouch = new Image("placeholderHero3Crouch.png");
+	Image spinpic = new Image("placeholderHeroSPIN3.png");
 	
 	public float velocityY;
 	private final float gravity = 0.5f;
@@ -108,12 +104,12 @@ public class Game {
 				        spin.setCycleCount(1);
 						spin.play();
 						velocityY = 12;
-						hero.setImage(spinning); // Set player animation state to spinning, empowering the second jump
+						hero.setImage(spinpic); // Set player animation state to spinning, empowering the second jump
 						secondJumpReady = false; // Prevent player from continually jumping higher
 					}
 					break;
 				case S:
-					hero.setImage(crouching); // Set player animation state to crouched
+					hero.setImage(crouch); // Set player animation state to crouched
 					break;
 				default:
 					break;
@@ -140,13 +136,5 @@ public class Game {
 				background.setLayoutX(background.getLayoutX() - 10);
 			}
 		});
-
-		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask() {
-		@Override
-		public void run() {
-			System.out.println("Time elapsed: " + timeElapsed++ + " seconds");
-		}
-		}, 0, 1000);
 	}
 }
