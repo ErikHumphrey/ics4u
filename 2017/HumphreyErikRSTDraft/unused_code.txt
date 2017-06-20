@@ -1,0 +1,9 @@
+/* Remnant of another possible method of triggering events at regular intervals instead of using java.util.timer
+		@Override
+		public void handle(long now) {
+			if (now - lastUpdate >= 100_000_000 {
+				doThing();
+				lastUpdate = now;
+			}
+		}
+ 	To be revisited in the summer. */

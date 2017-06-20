@@ -143,67 +143,24 @@ public class Main extends Application {
 			}
 		});
 		
-
 		// Custom cursors are super neat, add them
 		
-		// GitHub github = new GitHub();
-		
-		
 		buttons.getChildren().add(btnStart);
-
-		BorderPane bp = new BorderPane();
 		
 		VBox vb = new VBox(); // Create box of vertically aligned elements
 		vb.setPadding(new Insets(70, 427, 50, 50));
 		vb.setSpacing(10);
-		
-		HBox hb = new HBox(); // Create box of horizontally aligned elements
-		hb.setPadding(new Insets(20));
-		hb.setSpacing(10);
-		//bp.setCenter(vb);
-		
 
-        Text title = new Text("you have to navigate through the menus very quickly for anything to happen");
+        Text title = new Text("Hometown Hero");
         title.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 15));
         vb.getChildren().add(title);
 		vb.getChildren().add(btnStart);
 		vb.getChildren().add(btnStart2);
 		vb.getChildren().add(btnStart3);
         
-        // GridPane layout = new GridPane();
-        //vb.getChildren().add(btnStart);
-        
-        // 
-
-		
-		Image placeholder = new Image("placeholderHero3.png");
-		ImageView iv1 = new ImageView(placeholder);
-		//iv1.setImage(placeholder);
-		
-		Image ground = new Image("phground.png");
-		
-
-
-		ImageView iv3 = new ImageView(ground);
-		
-		
-        FlowPane fp = new FlowPane();
         buttons.getChildren().add(vb);
 		
 		mainWindow.setScene(menu);
-		
-
-		
-		VBox vb2 = new VBox(); // Create box of vertically aligned elements
-		vb2.setPadding(new Insets(180, 427, 50, 370));
-		vb2.setSpacing(10);
-		vb2.getChildren().add(iv1);
-
-		System.out.println(iv3.getX());
-		System.out.println(iv3.getLayoutX());
-		iv3.setX(0);
-		iv3.setY(280);
-		// remove this
 		
 		btnSelect.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		@Override public void handle(MouseEvent e) {
@@ -212,23 +169,11 @@ public class Main extends Application {
 		}
 		});
 		
-		
-
-		Image lvl1 = new Image("phBlankFlat2tester2.png");
-		
-		ImageView lvl11 = new ImageView(lvl1);
-		
 		btnStart.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent e) {
 				mainWindow.setScene(saveSelect);
 			}
 		});
-
-
-        final long startNanoTime = System.nanoTime();
-        
-        
-        
 
 		
 		timer.scheduleAtFixedRate(new TimerTask() {
@@ -238,25 +183,13 @@ public class Main extends Application {
 		}
 		}, 0, 1000);
 		
-
-		
 		Shape circle = new Circle(400, 210, 200);
 		Shape rect = new Rectangle(0, 0, 854, 480);
 		Shape region = Shape.subtract(rect, circle);
 		region.setFill(Color.BLACK);
 		/// saveFiles.getChildren().add(region);
-		
-
 	}
 
-	//@Override
-	//public void handle(long now) {
-	//	if (now - lastUpdate >= 100_000_000 {
-	//		doThing();
-	//		lastUpdate = now;
-	//  }
-	//}
-	
 	// When the Application is closed, the stop() method is triggered
 	@Override
 	public void stop() {
