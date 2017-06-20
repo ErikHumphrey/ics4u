@@ -1,3 +1,5 @@
+// Instantiated every time the player starts a new game
+
 import javafx.animation.AnimationTimer;
 import javafx.animation.RotateTransition;
 import javafx.event.EventHandler;
@@ -25,7 +27,7 @@ public class Game {
 	private boolean onGround = true;
     private boolean secondJumpReady = true;
     
-    // VERY temporary
+    	// Temporary images before sprite animation is added
 	Image crouch = new Image("placeholderHero3Crouch.png");
 	Image spinpic = new Image("placeholderHeroSPIN3.png");
 	
